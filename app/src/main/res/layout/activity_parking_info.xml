@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".parking_info"
+    android:background="@color/fontColor">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="667dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView54"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Parking la Rambla"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="45sp" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="match_parent"
+                android:layout_height="236dp"
+                app:srcCompat="@drawable/rambla_acceso"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imageButton17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/transparent"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/btn_star_big_off" />
+
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                <ImageView
+                    android:id="@+id/imageView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                <ImageView
+                    android:id="@+id/imageView17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                <ImageButton
+                    android:id="@+id/imageButton19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    app:srcCompat="@drawable/googleg_standard_color_18" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text=" C/ Rambla Nova 33 -650 meters"
+                android:textSize="25sp"
+                android:textColor="@color/colorPrimaryDark"
+                app:fontFamily="@font/montserrat_regular" />
+
+            <TextView
+                android:id="@+id/textView55"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/montserrat_regular"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="      Floors"
+                android:textColor="@color/fontColor"
+                android:textSize="30sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView19"
+                    android:layout_width="1dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/number1" />
+
+                <TextView
+                    android:id="@+id/textView56"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:text="12 free spaces"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView20"
+                    android:layout_width="1dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/number2" />
+
+                <TextView
+                    android:id="@+id/textView57"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:text="7 free spaces"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView21"
+                    android:layout_width="1dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/number3" />
+
+                <TextView
+                    android:id="@+id/textView58"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:text="18 free spaces"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="164dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/miniTitle"
+            android:textColor="@color/fontColor"
+            android:textSize="35sp"
+            app:fontFamily="@font/bebasneue_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="PARK IT!" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="58dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/burguer_button"
+            android:src="@drawable/back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+
+</android.support.constraint.ConstraintLayout>

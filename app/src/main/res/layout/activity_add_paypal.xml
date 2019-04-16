@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".add_paypal"
+    android:background="@color/colorPrimaryDark">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="88dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/bebasneue_regular"
+        android:text="Payment Method"
+        android:textColor="@color/fontColor"
+        android:textSize="45sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView37"
+        android:layout_width="139dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="164dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toEndOf="@+id/imageView36"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/paypal" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="44dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center_horizontal"
+        android:text="@string/paypal"
+        android:textColor="@color/fontColor"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView37" />
+
+
+    U
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="360dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Username/Email"
+        android:textColor="@color/fontColor"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="480dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Password"
+        android:textColor="@color/fontColor"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="345dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:fontFamily="@font/montserrat_bold"
+        android:inputType="textPersonName"
+        android:text="paypal@email.com"
+        android:textColor="@color/colorFont2"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <EditText
+        android:id="@+id/editText8"
+        android:layout_width="163dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="Password"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="147dp"
+        android:layout_height="69dp"
+        android:layout_gravity="right"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/save_button" />
+</android.support.constraint.ConstraintLayout>

@@ -13,4 +13,10 @@
     <string name="title_activity_first_menu">Map</string>
     <string name="miniTitle">PARK IT!</string>
     <string name="burguer_button">burguer button</string>
+    <string name="Forgotten_Password">Forgot password?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="RepeatPassword">Repeat password</string>
+    <string name="Location">Location</string>
+    <string name="creditcard">Credit card</string>
+    <string name="paypal">Paypal</string>
 </resources>
