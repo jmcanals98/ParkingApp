@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">PracticaParking</string>
+    <string name="backbutton">backbutton</string>
+    <string name="qrbutton">qrbutton</string>
+    <string name="listbutton">listbutton</string>
+    <string name="vehiclebutton">vehiclebutton</string>
+    <string name="textview">TextView</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="slogan">Easy, fast, coinless</string>
+    <string name="appTitle">P A R K   I T!</string>
+    <string name="title_activity_firstmenu_activity">Map</string>
+    <string name="title_activity_first_menu">Map</string>
+    <string name="miniTitle">PARK IT!</string>
+    <string name="burguer_button">burguer button</string>
+</resources>
