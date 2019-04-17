@@ -17,11 +17,6 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".list_payment_methods"></activity>
         <activity android:name=".qr_generator">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".floor_info"></activity>
         <activity android:name=".add_paypal" />
@@ -43,7 +38,8 @@
 
         <activity
             android:name=".FirstMenu"
-            android:label="@string/title_activity_first_menu" />
+            android:label="@string/title_activity_first_menu" >
+        </activity>
         <activity
             android:name=".MainSign_up"
             android:label="Sign up menu" />
