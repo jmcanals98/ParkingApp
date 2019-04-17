@@ -15,10 +15,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".list_payment_methods"></activity>
-        <activity android:name=".qr_generator">
+        <activity
+            android:name=".navigation"
+            android:label="@string/title_activity_navigation"
+            android:theme="@style/NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".floor_info"></activity>
+        <activity android:name=".list_payment_methods" />
+        <activity android:name=".qr_generator"></activity>
+        <activity android:name=".floor_info" />
         <activity android:name=".add_paypal" />
         <activity android:name=".add_credit_card" />
         <activity android:name=".navmenu_choosepayment" />
@@ -38,7 +47,8 @@
 
         <activity
             android:name=".FirstMenu"
-            android:label="@string/title_activity_first_menu" >
+            android:label="@string/title_activity_first_menu">
+
         </activity>
         <activity
             android:name=".MainSign_up"
