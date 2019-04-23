@@ -3,6 +3,7 @@ package com.example.parkingapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 public class Filter extends AppCompatActivity {
@@ -19,6 +20,7 @@ public class Filter extends AppCompatActivity {
         Orderby = (Spinner)findViewById(R.id.spOrder);
         Type = (Spinner)findViewById(R.id.spType);
         Price = (Spinner)findViewById(R.id.spPrice);
+
 
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.combo_order,android.R.layout.simple_spinner_item);
         Orderby.setAdapter(adapter);

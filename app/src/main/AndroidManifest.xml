@@ -16,11 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".Filter">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".LogInError" />
         <activity
@@ -34,7 +29,13 @@
         <activity android:name=".add_credit_card" />
         <activity android:name=".navmenu_choosepayment" />
         <activity android:name=".parking_info" />
-        <activity android:name=".parking_list" />
+        <activity android:name=".parking_list" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter>
+    </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
