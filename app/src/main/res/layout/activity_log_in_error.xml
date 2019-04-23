@@ -40,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
     <EditText
-        android:id="@+id/etEmail2"
+        android:id="@+id/etEmail"
         android:layout_width="352dp"
         android:layout_height="52dp"
         android:layout_marginStart="8dp"
@@ -58,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/etPassword2"
+        android:id="@+id/etPass"
         android:layout_width="354dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -75,7 +75,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/bLogin2"
+        android:id="@+id/bLogin"
         android:layout_width="329dp"
         android:layout_height="61dp"
         android:layout_marginStart="8dp"
@@ -95,10 +95,10 @@
         android:text="@string/Forgotten_Password"
         android:textColor="@color/colorFont2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword2" />
+        app:layout_constraintTop_toBottomOf="@+id/etPass" />
 
     <TextView
-        android:id="@+id/textView34"
+        android:id="@+id/tvSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -108,5 +108,5 @@
         android:textColor="@color/colorFont2"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bLogin2" />
+        app:layout_constraintTop_toBottomOf="@+id/bLogin" />
 </android.support.constraint.ConstraintLayout>

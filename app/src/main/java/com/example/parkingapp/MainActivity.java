@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText Email;
     private EditText Password;
     private Button Login;
+    private TextView Signup;
 
 
     @Override
@@ -21,14 +22,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Email= (EditText)findViewById(R.id.etEmail);
-        Password=(EditText)findViewById(R.id.etPassword);
+        Password=(EditText)findViewById(R.id.etPass);
         Login = (Button)findViewById(R.id.bLogin);
+        Signup = (TextView)findViewById(R.id.tvSign);
 
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 validate(Email.getText().toString(),Password.getText().toString());
+            }
+        });
+
+        Signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,MainSign_up.class));
             }
         });
 
