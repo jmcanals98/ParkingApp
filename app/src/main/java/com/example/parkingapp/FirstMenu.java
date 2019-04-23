@@ -1,9 +1,12 @@
 package com.example.parkingapp;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -17,6 +20,9 @@ public class FirstMenu extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
+    private ImageView Qr;
+    private ImageView Info;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +31,23 @@ public class FirstMenu extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        Qr= (ImageView)findViewById(R.id.ivQr);
+        Info=(ImageView)findViewById(R.id.ivInfo);
+
+        Qr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FirstMenu.this,qr_generator.class));
+            }
+        });
+
+        Info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FirstMenu.this,parking_list.class));
+            }
+        });
     }
 
 
