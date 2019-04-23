@@ -15,16 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".LogInError"></activity>
         <activity
             android:name=".navigation"
             android:label="@string/title_activity_navigation"
-            android:theme="@style/NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/NoActionBar"></activity>
         <activity android:name=".list_payment_methods" />
         <activity android:name=".qr_generator"></activity>
         <activity android:name=".floor_info" />
@@ -47,13 +42,17 @@
 
         <activity
             android:name=".FirstMenu"
-            android:label="@string/title_activity_first_menu">
-
-        </activity>
+            android:label="@string/title_activity_first_menu"></activity>
         <activity
             android:name=".MainSign_up"
             android:label="Sign up menu" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
     </application>
 
 </manifest>

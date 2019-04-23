@@ -40,7 +40,7 @@
         app:fontFamily="@font/montserrat_bolditalic" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/etEmail"
         android:layout_width="352dp"
         android:layout_height="52dp"
         android:layout_marginStart="8dp"
@@ -80,7 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword"
         app:layout_constraintVertical_bias="0.173" />
 
     <EditText
@@ -106,7 +106,7 @@
         app:layout_constraintVertical_bias="0.347" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/etPassword"
         android:layout_width="354dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -124,12 +124,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail"
         app:layout_constraintVertical_bias="0.173"
         tools:text="@string/Password" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bLogin"
         android:layout_width="329dp"
         android:layout_height="61dp"
         android:layout_marginStart="8dp"

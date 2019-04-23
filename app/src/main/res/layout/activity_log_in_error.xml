@@ -5,16 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_start"
-    tools:context=".MainActivity">
+    tools:context=".LogInError">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="144dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/appTitle"
+        android:text="OOOOPS!"
         android:textColor="@color/fontColor"
         android:textSize="100sp"
         android:textStyle="bold"
@@ -24,23 +24,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView32"
+        android:layout_width="339dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/slogan"
+        android:text="Something went worng, try again"
         android:textColor="@color/fontColor"
         android:textSize="24sp"
         app:fontFamily="@font/montserrat_bolditalic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:text="Easy, fast, coinless" />
+        app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/etEmail2"
         android:layout_width="352dp"
         android:layout_height="52dp"
         android:layout_marginStart="8dp"
@@ -58,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etPassword2"
         android:layout_width="354dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -75,7 +75,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/bLogin"
+        android:id="@+id/bLogin2"
         android:layout_width="329dp"
         android:layout_height="61dp"
         android:layout_marginStart="8dp"
@@ -87,7 +87,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
@@ -95,10 +95,10 @@
         android:text="@string/Forgotten_Password"
         android:textColor="@color/colorFont2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etPassword2" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -108,7 +108,5 @@
         android:textColor="@color/colorFont2"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bLogin" />
-
+        app:layout_constraintTop_toBottomOf="@+id/bLogin2" />
 </android.support.constraint.ConstraintLayout>
-
