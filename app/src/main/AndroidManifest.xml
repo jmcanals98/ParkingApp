@@ -27,14 +27,15 @@
         <activity android:name=".floor_info" />
         <activity android:name=".add_paypal" />
         <activity android:name=".add_credit_card" />
-        <activity android:name=".navmenu_choosepayment" />
-        <activity android:name=".parking_info" />
-        <activity android:name=".parking_list" >
+        <activity android:name=".navmenu_choosepayment" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER"/>
         </intent-filter>
+    </activity>
+        <activity android:name=".parking_info" />
+        <activity android:name=".parking_list" >
     </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
