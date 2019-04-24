@@ -45,7 +45,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView36"
+        android:id="@+id/ivCredit"
         android:layout_width="182dp"
         android:layout_height="125dp"
         android:layout_marginStart="16dp"
@@ -68,7 +68,7 @@
         android:textColor="@color/fontColor"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView36" />
+        app:layout_constraintTop_toBottomOf="@+id/ivCredit" />
 
 
     <TextView
