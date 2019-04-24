@@ -89,22 +89,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/etName"
         android:layout_width="345dp"
         android:layout_height="50dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="12dp"
         android:ems="10"
         android:fontFamily="@font/montserrat_bold"
+        android:hint="@string/paypal_email_com"
         android:inputType="textPersonName"
-        android:text="paypal@email.com"
         android:textColor="@color/colorFont2"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/etPassword3"
         android:layout_width="163dp"
         android:layout_height="39dp"
         android:layout_marginStart="44dp"
@@ -116,7 +117,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/ivSave1"
         android:layout_width="147dp"
         android:layout_height="69dp"
         android:layout_gravity="right"
