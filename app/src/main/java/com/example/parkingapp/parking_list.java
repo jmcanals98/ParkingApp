@@ -11,6 +11,7 @@ public class parking_list extends AppCompatActivity {
 
     private ImageView Back;
     private ImageView Filter;
+    private ImageView Parking;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +19,7 @@ public class parking_list extends AppCompatActivity {
 
         Back = (ImageView)findViewById(R.id.ivBack);
         Filter = (ImageView)findViewById(R.id.ivFilter);
+        Parking = (ImageView)findViewById(R.id.ivP1);
 
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,11 +28,12 @@ public class parking_list extends AppCompatActivity {
             }
         });
 
-        Filter.setOnClickListener(new View.OnClickListener() {
+        Parking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fr;
+                startActivity(new Intent(parking_list.this,parking_info.class));
             }
         });
+
     }
 }
