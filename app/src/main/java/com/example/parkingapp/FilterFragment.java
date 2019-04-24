@@ -12,7 +12,6 @@ import android.widget.Spinner;
 
 
 public class FilterFragment extends Fragment {
-
     private Spinner Orderby;
     private Spinner Type;
     private Spinner Price;
@@ -26,7 +25,7 @@ public class FilterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_filter4,container,false);
+        View view = inflater.inflate(R.layout.fragment_filter6,container,false);
         Orderby = (Spinner)view.findViewById(R.id.spOrder);
         Type = (Spinner)view.findViewById(R.id.spType);
         Price = (Spinner)view.findViewById(R.id.spPrice);
@@ -42,6 +41,4 @@ public class FilterFragment extends Fragment {
 
         return view;
     }
-
-
 }

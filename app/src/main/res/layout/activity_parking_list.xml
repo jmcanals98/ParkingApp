@@ -64,7 +64,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/ivFilter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" >
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
     </SearchView>
 
@@ -72,16 +72,17 @@
         android:id="@+id/ivFilter"
         android:layout_width="53dp"
         android:layout_height="52dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="84dp"
         android:layout_marginEnd="28dp"
+        android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/filter" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="422dp"
-        android:layout_height="581dp"
+        android:layout_height="502dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -89,8 +90,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.823">
 
 
         <LinearLayout
@@ -188,8 +189,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:fontFamily="@font/montserrat_regular"
-                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
                         android:text="Parking la Rambla 2"
+                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
                         android:textSize="24sp" />
 
                     <ImageView
@@ -281,5 +282,19 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <fragment
+        android:id="@+id/frFilter"
+        android:name="com.example.parkingapp.FilterFragment"
+        android:layout_width="366dp"
+        android:layout_height="288dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
 
 </android.support.constraint.ConstraintLayout>
