@@ -37,7 +37,17 @@ public class parking_list extends AppCompatActivity {
             }
         });
 
-        
+        Filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog();
+            }
+        });
 
     }
+    public void openDialog() {
+        Filter_dialog dialog = new Filter_dialog();
+        dialog.show(getSupportFragmentManager(), "example dialog");
+    }
 }
+
