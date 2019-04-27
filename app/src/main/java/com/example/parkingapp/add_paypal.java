@@ -43,7 +43,7 @@ public class add_paypal extends AppCompatActivity {
     {
         if((!userName.isEmpty()) && (!userPassword.isEmpty()))
         {
-            Intent intent = new Intent(add_paypal.this,FirstMenu.class);
+            Intent intent = new Intent(add_paypal.this,navigation.class);
             startActivity(intent);
         }
     }

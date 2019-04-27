@@ -41,7 +41,7 @@ public class MainSign_up extends Activity {
     {
         if((!userEmail.isEmpty()) && (userPassword.equals(userRepeatPassword)) && (!userLocation.isEmpty()))
         {
-            Intent intent = new Intent(MainSign_up.this,FirstMenu.class);
+            Intent intent = new Intent(MainSign_up.this,navigation.class);
             startActivity(intent);
         }
     }

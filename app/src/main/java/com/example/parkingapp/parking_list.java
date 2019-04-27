@@ -26,7 +26,7 @@ public class parking_list extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(parking_list.this,FirstMenu.class));
+                startActivity(new Intent(parking_list.this,navigation.class));
             }
         });
 

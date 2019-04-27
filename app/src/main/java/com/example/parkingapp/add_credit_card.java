@@ -47,7 +47,7 @@ public class add_credit_card extends AppCompatActivity {
     {
         if((!userCardHolder.isEmpty()) && (!userCardNumber.isEmpty()) && (!userYearMonth.isEmpty()) && (!userCVV.isEmpty()))
         {
-            Intent intent = new Intent(add_credit_card.this,FirstMenu.class);
+            Intent intent = new Intent(add_credit_card.this,navigation.class);
             startActivity(intent);
         }
     }

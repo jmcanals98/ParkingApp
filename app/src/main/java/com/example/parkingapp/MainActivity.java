@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     {
         if((userEmail.equals("hola@gmail.com")) && (userPassword.equals("1234")))
         {
-            Intent intent = new Intent(MainActivity.this,FirstMenu.class);
+            Intent intent = new Intent(MainActivity.this,navigation.class);
             startActivity(intent);
         }
         else

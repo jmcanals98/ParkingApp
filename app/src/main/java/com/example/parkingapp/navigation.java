@@ -1,5 +1,6 @@
 package com.example.parkingapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,9 +16,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
+import com.google.android.gms.maps.GoogleMap;
 
 public class navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private GoogleMap mMap;
+    private ImageView Qr;
+    private ImageView Info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,22 @@ public class navigation extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        Qr= (ImageView)findViewById(R.id.ivQr);
+        Info=(ImageView)findViewById(R.id.ivInfo);
+
+        Qr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(navigation.this,qr_generator.class));
+            }
+        });
+
+        Info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(navigation.this,parking_list.class));
+            }
+        });
     }
 
     @Override
