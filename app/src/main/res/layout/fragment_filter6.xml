@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Order by"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <Spinner
             android:id="@+id/spOrder"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Type"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <Spinner
             android:id="@+id/spType"
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Price"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <Spinner
             android:id="@+id/spPrice"

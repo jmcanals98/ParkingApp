@@ -13,7 +13,7 @@ public class MapsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_payment_methods,null);
+        return inflater.inflate(R.layout.content_navigation,null);
     }
 
 

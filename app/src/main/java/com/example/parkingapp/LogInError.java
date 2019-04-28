@@ -45,7 +45,7 @@ public class LogInError extends AppCompatActivity {
     {
         if((userEmail.equals("hola@gmail.com")) && (userPassword.equals("1234")))
         {
-            Intent intent = new Intent(LogInError.this,FirstMenu.class);
+            Intent intent = new Intent(LogInError.this,navigation.class);
             startActivity(intent);
         }
         else

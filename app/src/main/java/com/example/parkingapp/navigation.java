@@ -26,6 +26,7 @@ public class navigation extends AppCompatActivity
     private GoogleMap mMap;
     private ImageView Qr;
     private ImageView Info;
+    private DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,9 +97,9 @@ public class navigation extends AppCompatActivity
         } else if (id == R.id.nav_fav) {
             fragment = new FavsFragment();
         } else if (id == R.id.nav_logout) {
-
+            startActivity(new Intent(navigation.this,MainActivity.class));
         } else if(id == R.id.nav_menu){
-
+            startActivity(new Intent(navigation.this,navigation.class));
         }
         if (fragment!=null){
             FragmentManager fragmentManager=getSupportFragmentManager();
