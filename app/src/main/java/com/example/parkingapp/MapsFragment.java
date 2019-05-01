@@ -38,7 +38,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                 Log.e("FirstMenu", "Style parsing failed.");
             }
         } catch (Resources.NotFoundException e) {
-            Log.e("FirstMenu", "Can't find style. Error: ", e);
+            Log.e("Content", "Can't find style. Error: ", e);
         }
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(41, 1);
