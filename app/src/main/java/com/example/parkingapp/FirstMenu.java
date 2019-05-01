@@ -38,14 +38,14 @@ public class FirstMenu extends FragmentActivity implements OnMapReadyCallback {
         Qr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FirstMenu.this,qr_generator.class));
+                startActivity(new Intent(FirstMenu.this, QrGeneratorActivity.class));
             }
         });
 
         Info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FirstMenu.this,parking_list.class));
+                startActivity(new Intent(FirstMenu.this, ParkingListActivity.class));
             }
         });
     }
@@ -66,9 +66,7 @@ public class FirstMenu extends FragmentActivity implements OnMapReadyCallback {
         try {
             // Customise the styling of the base map using a JSON object defined
             // in a raw resource file.
-            boolean success = googleMap.setMapStyle(
-                    MapStyleOptions.loadRawResourceStyle(
-                            this, R.raw.mapstyle));
+            boolean success = googleMap.setMapStyle( MapStyleOptions.loadRawResourceStyle(this, R.raw.mapstyle));
 
             if (!success) {
                 Log.e("FirstMenu", "Style parsing failed.");

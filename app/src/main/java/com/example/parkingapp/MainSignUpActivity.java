@@ -1,15 +1,13 @@
 package com.example.parkingapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-public class MainSign_up extends Activity {
+public class MainSignUpActivity extends Activity {
 
     private EditText Email;
     private EditText Password;
@@ -41,7 +39,7 @@ public class MainSign_up extends Activity {
     {
         if((!userEmail.isEmpty()) && (userPassword.equals(userRepeatPassword)) && (!userLocation.isEmpty()))
         {
-            Intent intent = new Intent(MainSign_up.this,navigation.class);
+            Intent intent = new Intent(MainSignUpActivity.this, NavigationActivity.class);
             startActivity(intent);
         }
     }

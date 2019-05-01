@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class LogInError extends AppCompatActivity {
+public class LoginErrorActivity extends AppCompatActivity {
 
 
     private EditText Email;
@@ -36,7 +36,7 @@ public class LogInError extends AppCompatActivity {
         Signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LogInError.this,MainSign_up.class));
+                startActivity(new Intent(LoginErrorActivity.this, MainSignUpActivity.class));
             }
         });
 
@@ -45,12 +45,12 @@ public class LogInError extends AppCompatActivity {
     {
         if((userEmail.equals("hola@gmail.com")) && (userPassword.equals("1234")))
         {
-            Intent intent = new Intent(LogInError.this,navigation.class);
+            Intent intent = new Intent(LoginErrorActivity.this, NavigationActivity.class);
             startActivity(intent);
         }
         else
         {
-            Intent intent = new Intent(LogInError.this,LogInError.class);
+            Intent intent = new Intent(LoginErrorActivity.this, LoginErrorActivity.class);
             startActivity(intent);
         }
     }

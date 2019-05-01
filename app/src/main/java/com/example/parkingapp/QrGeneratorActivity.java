@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class qr_generator extends AppCompatActivity {
+public class QrGeneratorActivity extends AppCompatActivity {
 
     private ImageView Back;
 
@@ -20,7 +20,7 @@ public class qr_generator extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(qr_generator.this,navigation.class));
+                startActivity(new Intent(QrGeneratorActivity.this, NavigationActivity.class));
             }
         });
     }

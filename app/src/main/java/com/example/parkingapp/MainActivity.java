@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,MainSign_up.class));
+                startActivity(new Intent(MainActivity.this, MainSignUpActivity.class));
             }
         });
 
@@ -46,12 +46,12 @@ public class MainActivity extends AppCompatActivity {
     {
         if((userEmail.equals("hola@gmail.com")) && (userPassword.equals("1234")))
         {
-            Intent intent = new Intent(MainActivity.this,navigation.class);
+            Intent intent = new Intent(MainActivity.this, NavigationActivity.class);
             startActivity(intent);
         }
         else
         {
-           Intent intent = new Intent(MainActivity.this,LogInError.class);
+           Intent intent = new Intent(MainActivity.this, LoginErrorActivity.class);
            startActivity(intent);
         }
     }

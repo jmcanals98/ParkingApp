@@ -31,14 +31,14 @@ public class navmenu_choosepayment extends AppCompatActivity {
         Credit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(navmenu_choosepayment.this,add_credit_card.class));
+                startActivity(new Intent(navmenu_choosepayment.this, AddCreditCardActivity.class));
             }
         });
 
         Paypal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(navmenu_choosepayment.this,add_paypal.class));
+                startActivity(new Intent(navmenu_choosepayment.this, AddPaypalActivity.class));
             }
         });
     }

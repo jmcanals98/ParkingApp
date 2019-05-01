@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class floor_info extends AppCompatActivity {
+public class FloorInfoActivity extends AppCompatActivity {
 
     private ImageView Back;
     @Override
@@ -19,7 +19,7 @@ public class floor_info extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(floor_info.this,parking_info.class));
+                startActivity(new Intent(FloorInfoActivity.this, ParkingInfoActivity.class));
             }
         });
     }

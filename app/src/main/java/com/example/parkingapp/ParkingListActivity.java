@@ -1,14 +1,12 @@
 package com.example.parkingapp;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class parking_list extends AppCompatActivity {
+public class ParkingListActivity extends AppCompatActivity {
 
     private ImageView Back;
     private ImageView Filter;
@@ -26,14 +24,14 @@ public class parking_list extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(parking_list.this,navigation.class));
+                startActivity(new Intent(ParkingListActivity.this, NavigationActivity.class));
             }
         });
 
         Parking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(parking_list.this,parking_info.class));
+                startActivity(new Intent(ParkingListActivity.this, ParkingInfoActivity.class));
             }
         });
 
@@ -46,7 +44,7 @@ public class parking_list extends AppCompatActivity {
 
     }
     public void openDialog() {
-        Filter_dialog dialog = new Filter_dialog();
+        FilterDialogFragment dialog = new FilterDialogFragment();
         dialog.show(getSupportFragmentManager(), "example dialog");
     }
 }

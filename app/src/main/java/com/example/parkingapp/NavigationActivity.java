@@ -2,8 +2,6 @@ package com.example.parkingapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -20,7 +18,7 @@ import android.widget.ImageView;
 
 import com.google.android.gms.maps.GoogleMap;
 
-public class navigation extends AppCompatActivity
+public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private GoogleMap mMap;
@@ -53,14 +51,14 @@ public class navigation extends AppCompatActivity
         Qr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(navigation.this,qr_generator.class));
+                startActivity(new Intent(NavigationActivity.this, QrGeneratorActivity.class));
             }
         });
 
         Info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(navigation.this,parking_list.class));
+                startActivity(new Intent(NavigationActivity.this, ParkingListActivity.class));
             }
         });
     }
@@ -97,9 +95,9 @@ public class navigation extends AppCompatActivity
         } else if (id == R.id.nav_fav) {
             fragment = new FavsFragment();
         } else if (id == R.id.nav_logout) {
-            startActivity(new Intent(navigation.this,MainActivity.class));
+            startActivity(new Intent(NavigationActivity.this,MainActivity.class));
         } else if(id == R.id.nav_menu){
-            startActivity(new Intent(navigation.this,navigation.class));
+            startActivity(new Intent(NavigationActivity.this, NavigationActivity.class));
         }
         if (fragment!=null){
             FragmentManager fragmentManager=getSupportFragmentManager();

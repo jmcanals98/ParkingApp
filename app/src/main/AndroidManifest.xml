@@ -15,22 +15,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Filter"></activity>
-        <activity android:name=".LogInError" />
+        <activity android:name=".LoginErrorActivity" />
         <activity
-            android:name=".navigation"
+            android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".list_payment_methods" />
-        <activity android:name=".qr_generator" />
-        <activity android:name=".floor_info" />
-        <activity android:name=".add_paypal" />
-        <activity android:name=".add_credit_card" />
+        <activity android:name=".ListPaymentMethodsActivity" />
+        <activity android:name=".QrGeneratorActivity" />
+        <activity android:name=".FloorInfoActivity" />
+        <activity android:name=".AddPaypalActivity" />
+        <activity android:name=".AddCreditCardActivity" />
         <activity android:name=".navmenu_choosepayment">
 
         </activity>
-        <activity android:name=".parking_info" />
-        <activity android:name=".parking_list">
+        <activity android:name=".ParkingInfoActivity" />
+        <activity android:name=".ParkingListActivity">
 
         </activity>
         <!--
@@ -43,13 +42,13 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyBureGG8QrwcYHC31e-gzt17cqGxh9rMcw" />
 
         <activity
             android:name=".FirstMenu"
             android:label="@string/title_activity_first_menu" />
         <activity
-            android:name=".MainSign_up"
+            android:name=".MainSignUpActivity"
             android:label="Sign up menu" />
         <activity android:name=".MainActivity">
             <intent-filter>

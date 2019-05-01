@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-public class add_credit_card extends AppCompatActivity {
+public class AddCreditCardActivity extends AppCompatActivity {
 
     private ImageView Back;
     private  ImageView Save;
@@ -31,7 +31,7 @@ public class add_credit_card extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(add_credit_card.this,navmenu_choosepayment.class));
+                startActivity(new Intent(AddCreditCardActivity.this,navmenu_choosepayment.class));
             }
         });
 
@@ -47,7 +47,7 @@ public class add_credit_card extends AppCompatActivity {
     {
         if((!userCardHolder.isEmpty()) && (!userCardNumber.isEmpty()) && (!userYearMonth.isEmpty()) && (!userCVV.isEmpty()))
         {
-            Intent intent = new Intent(add_credit_card.this,navigation.class);
+            Intent intent = new Intent(AddCreditCardActivity.this, NavigationActivity.class);
             startActivity(intent);
         }
     }

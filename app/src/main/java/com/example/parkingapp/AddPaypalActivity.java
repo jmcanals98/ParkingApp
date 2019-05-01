@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-public class add_paypal extends AppCompatActivity {
+public class AddPaypalActivity extends AppCompatActivity {
 
     private ImageView Back;
     private  ImageView Save;
@@ -27,7 +27,7 @@ public class add_paypal extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(add_paypal.this,navmenu_choosepayment.class));
+                startActivity(new Intent(AddPaypalActivity.this,navmenu_choosepayment.class));
             }
         });
 
@@ -43,7 +43,7 @@ public class add_paypal extends AppCompatActivity {
     {
         if((!userName.isEmpty()) && (!userPassword.isEmpty()))
         {
-            Intent intent = new Intent(add_paypal.this,navigation.class);
+            Intent intent = new Intent(AddPaypalActivity.this, NavigationActivity.class);
             startActivity(intent);
         }
     }

@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class Filter_dialog extends AppCompatDialogFragment {
+public class FilterDialogFragment extends AppCompatDialogFragment {
     private Spinner Orderby;
     private Spinner Type;
     private Spinner Price;
