@@ -3,9 +3,9 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'AndroidKey'
+            keyAlias 'googlemaps'
             keyPassword 'adriajuanma1234'
-            storeFile file('D:/Documentos/Universidad/Tercero/Android/appKey.jks')
+            storeFile file('D:/ProyectosASM/ParkingApp/app/common/appKey.jks')
             storePassword 'adriajuanma1234'
         }
     }
@@ -24,11 +24,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
         }
+        debug {
+            debuggable true
+            jniDebuggable true
+            signingConfig signingConfigs.config
+        }
     }
 }
 
 dependencies {
-    implementation project(":commManager")
+    implementation project(':commManager')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:design:28.0.0'

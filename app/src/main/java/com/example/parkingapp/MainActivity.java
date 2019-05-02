@@ -8,7 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import cat.tomasgis.module.communication.CommManager;
+import cat.tomasgis.module.communication.listeners.IDataReceiver;
+
+public class MainActivity extends AppCompatActivity implements IDataReceiver {
 
     private EditText Email;
     private EditText Password;
@@ -41,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        CommManager.initializeQueu(this.getApplicationContext());
+        CommManager.callRequest();
+
     }
     private void validate (String userEmail, String userPassword)
     {
@@ -56,4 +62,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onReceiveData(String s) {
+
+    }
 }
