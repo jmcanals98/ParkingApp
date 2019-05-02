@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'googlemaps'
             keyPassword 'adriajuanma1234'
-            storeFile file('D:/ProyectosASM/ParkingApp/app/common/appKey.jks')
+            storeFile file('D:/ASM/app/common/appKey.jks')
             storePassword 'adriajuanma1234'
         }
     }

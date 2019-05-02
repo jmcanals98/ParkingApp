@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
             }
         });
 
-        CommManager.initializeQueu(this.getApplicationContext());
-        CommManager.callRequest();
 
     }
     private void validate (String userEmail, String userPassword)
