@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
         Login = (Button)findViewById(R.id.bLogin);
         Signup = (TextView)findViewById(R.id.tvSign);
 
+        CommManager.initializeQueu(this);
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
             }
         });
 
+        CommManager.initializeQueu(this);
 
     }
     private void validate (String userEmail, String userPassword)
