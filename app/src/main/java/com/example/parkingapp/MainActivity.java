@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
         Signup = (TextView) findViewById(R.id.tvSign);
 
         CommManager.initializeQueu(this);
-        if (!CommManager.callRequest("https://django-parking-server.herokuapp.com/endpoints/api/floor/1/", stringListener))
+        if (!CommManager.callRequest(AppURL.PARKING_URL, stringListener))
             Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
 
 
@@ -82,19 +82,8 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
             Toast.makeText(this, "Data NOT received", Toast.LENGTH_SHORT).show();
             Log.e(TAG, "No data to show");
         }
-        /*String parseString = "{\"locations\":"+s+"}";
 
-        Locations locations = gson.create().fromJson(parseString,Locations.class) ;
-        */
-
-        /*String parseString = "{\"slots\":"+s+"}";
-        GsonBuilder gson= new GsonBuilder();
-        Slots slots = gson.create().fromJson(parseString,Slots.class) ;
-        */
-
-        String parseString = "{\"floor\":"+s+"}";
-        GsonBuilder gson= new GsonBuilder();
-        Floor floor = gson.create().fromJson(s,Floor.class) ;
+        downloadParkings(s);
 
 
         if (s != null) {
@@ -105,4 +94,29 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
         }
 
     }
+
+    private void downloadParkings(String data){
+        String parseString = "{\"parkings\":"+data+"}";
+        GsonBuilder gson= new GsonBuilder();
+        Parkings parkings = gson.create().fromJson(parseString,Parkings.class) ;
+    }
+
+    private void downloadSlots(String data){
+        String parseString = "{\"slots\":"+data+"}";
+        GsonBuilder gson= new GsonBuilder();
+        Slots slots = gson.create().fromJson(parseString,Slots.class) ;
+    }
+
+    private void downloadFloors(String data){
+        String parseString = "{\"floors\":"+data+"}";
+        GsonBuilder gson= new GsonBuilder();
+        Floors floors = gson.create().fromJson(parseString,Floors.class) ;
+    }
+
+    private void downloadLocations(String data){
+        String parseString = "{\"locations\":"+data+"}";
+        GsonBuilder gson= new GsonBuilder();
+        Locations locations = gson.create().fromJson(parseString,Locations.class) ;
+    }
+
 }
