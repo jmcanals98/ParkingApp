@@ -5,17 +5,17 @@ import java.util.List;
 
 public class Slots {
 
-    List<Floor> slots;
+    List<Slot> slots;
 
     public Slots() {
         slots=new ArrayList<>();
     }
 
-    public List<Floor> getSlots() {
+    public List<Slot> getSlots() {
         return slots;
     }
 
-    public void setSlots(List<Floor> slots) {
+    public void setSlots(List<Slot> slots) {
         this.slots = slots;
     }
 }

@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
         Signup = (TextView) findViewById(R.id.tvSign);
 
         CommManager.initializeQueu(this);
-        if (!CommManager.callRequest(AppURL.FLOOR_URL, stringListener))
+        if (!CommManager.callRequest("https://django-parking-server.herokuapp.com/endpoints/api/floor/1/", stringListener))
             Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
 
 
@@ -77,19 +77,24 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
                 Toast.makeText(this, "Data received", Toast.LENGTH_SHORT).show();
                 Log.d(TAG, s);
             }
+
         } else {
             Toast.makeText(this, "Data NOT received", Toast.LENGTH_SHORT).show();
             Log.e(TAG, "No data to show");
         }
-        GsonBuilder gson= new GsonBuilder();
         /*String parseString = "{\"locations\":"+s+"}";
 
         Locations locations = gson.create().fromJson(parseString,Locations.class) ;
         */
-        String parseString = "{\"floors\":"+s+"}";
 
-        Floors floors = gson.create().fromJson(parseString,Floors.class) ;
+        /*String parseString = "{\"slots\":"+s+"}";
+        GsonBuilder gson= new GsonBuilder();
+        Slots slots = gson.create().fromJson(parseString,Slots.class) ;
+        */
 
+        String parseString = "{\"floor\":"+s+"}";
+        GsonBuilder gson= new GsonBuilder();
+        Floor floor = gson.create().fromJson(s,Floor.class) ;
 
 
         if (s != null) {
