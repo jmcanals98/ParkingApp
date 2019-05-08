@@ -1,9 +1,11 @@
 package com.example.parkingapp;
 
 import android.Manifest;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.location.Location;
 import android.net.Uri;
@@ -31,11 +33,16 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
+
+import static android.content.ContentValues.TAG;
+
 
 public class MapsFragment extends SupportMapFragment implements OnMapReadyCallback {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private GoogleMap mMap;
-
+    private static final String TAG = MainActivity.class.getSimpleName();
+    private Locations locations;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -70,6 +77,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(tgn, zoom));
 
         // Colocar un marcador en la misma posición
+        queryBaseData();
         map.addMarker(new MarkerOptions().position(tgn));
 
         if (ActivityCompat.checkSelfPermission(this.getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this.getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -83,6 +91,18 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
             return;
         }
         map.setMyLocationEnabled(true);
+    }
+
+    protected void queryBaseData()
+    {
+        ContentResolver contentResolver = getActivity().getContentResolver();
+
+
+        String defaultOrder = ModelContracts.LocationModel.DEFAULT_SORT;
+        String projections[] = ModelContracts.LocationModel.DEFAULT_PROJECTIONS;
+        String selection = "company_number=?";
+        String selectionArgs[] = ModelContracts.LocationModel.buildDefaultSelectionArgs(1);
+
     }
 
 
