@@ -13,4 +13,60 @@ public class Location {
         this.latitude = latitude;
         this.longitude = longitude;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setPostal_code(int postal_code) {
+        this.postal_code = postal_code;
+    }
+
+    public void setStreet_address(String street_address) {
+        this.street_address = street_address;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setState_province(String state_province) {
+        this.state_province = state_province;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getPostal_code() {
+        return postal_code;
+    }
+
+    public String getStreet_address() {
+        return street_address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getState_province() {
+        return state_province;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
 }

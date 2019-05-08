@@ -63,6 +63,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         }
         // Posicionar el mapa en una localización y con un nivel de zoom
         LatLng tgn = new LatLng(41.118660, 1.245330);
+
         // Un zoom mayor que 13 hace que el emulador falle, pero un valor deseado para
         // callejero es 17 aprox.
         float zoom = 13;

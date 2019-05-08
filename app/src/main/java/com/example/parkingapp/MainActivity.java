@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import cat.tomasgis.module.communication.CommManager;
 import cat.tomasgis.module.communication.base.AppURL;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
     private EditText Password;
     private Button Login;
     private TextView Signup;
-    private Gson gson;
+
     StringResponseListener stringListener = new StringResponseListener(this);
     private static final String TAG = cat.tomasgis.module.communication.commapptesting.MainActivity.class.getSimpleName();
 
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
         Signup = (TextView) findViewById(R.id.tvSign);
 
         CommManager.initializeQueu(this);
-        if (!CommManager.callRequest(AppURL.LOCATIOM_URL, stringListener))
+        if (!CommManager.callRequest(AppURL.FLOOR_URL, stringListener))
             Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
 
 
@@ -56,9 +57,8 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
             }
         });
 
-        CommManager.initializeQueu(this);
-
     }
+
 
     private void validate(String userEmail, String userPassword) {
         if ((userEmail.equals("hola@gmail.com")) && (userPassword.equals("1234"))) {
@@ -81,8 +81,17 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
             Toast.makeText(this, "Data NOT received", Toast.LENGTH_SHORT).show();
             Log.e(TAG, "No data to show");
         }
-        String parseString = "{\"Location\":"+s+"}";
-        Locations locations = gson.fromJson(parseString,Locations.class);
+        GsonBuilder gson= new GsonBuilder();
+        /*String parseString = "{\"locations\":"+s+"}";
+
+        Locations locations = gson.create().fromJson(parseString,Locations.class) ;
+        */
+        String parseString = "{\"floors\":"+s+"}";
+
+        Floors floors = gson.create().fromJson(parseString,Floors.class) ;
+
+
+
         if (s != null) {
             if (s.length() > 0) {
                 Toast.makeText(this, "Data received", Toast.LENGTH_SHORT).show();

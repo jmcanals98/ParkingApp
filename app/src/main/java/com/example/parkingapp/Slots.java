@@ -10,4 +10,12 @@ public class Slots {
     public Slots() {
         slots=new ArrayList<>();
     }
+
+    public List<Floor> getSlots() {
+        return slots;
+    }
+
+    public void setSlots(List<Floor> slots) {
+        this.slots = slots;
+    }
 }
