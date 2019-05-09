@@ -66,13 +66,13 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
 
 
     private void validate(String userEmail, String userPassword) {
-        if ((userEmail.equals("hola@gmail.com")) && (userPassword.equals("1234"))) {
+       // if ((userEmail.equals("hola@gmail.com")) && (userPassword.equals("1234"))) {
             Intent intent = new Intent(MainActivity.this, NavigationActivity.class);
             startActivity(intent);
-        } else {
-            Intent intent = new Intent(MainActivity.this, LoginErrorActivity.class);
-            startActivity(intent);
-        }
+        //} else {
+        //    Intent intent = new Intent(MainActivity.this, LoginErrorActivity.class);
+        //    startActivity(intent);
+    //    }
     }
 
     @Override
@@ -129,19 +129,18 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
         ContentResolver contentResolver = this.getContentResolver();
 
         ContentValues cv = new ContentValues();
-
+        int size=locations.getLocations().size();
         for(int i=0; i<locations.getLocations().size(); i++){
             cv.put(ModelContracts.LocationContract.ID,locations.getLocations().get(i).getId());
+            cv.put(ModelContracts.LocationContract.NAME,"NEWYORK");
             cv.put(ModelContracts.LocationContract.POSTAL_CODE,locations.getLocations().get(i).getPostal_code());
             cv.put(ModelContracts.LocationContract.STREET_ADDRESS, locations.getLocations().get(i).getStreet_address());
             cv.put(ModelContracts.LocationContract.STATE_PROVINCE, locations.getLocations().get(i).getState_province());
             cv.put(ModelContracts.LocationContract.LATITUDE, locations.getLocations().get(i).getLatitude());
             cv.put(ModelContracts.LocationContract.LONGITUDE, locations.getLocations().get(i).getLongitude());
+            Uri insertUri = contentResolver.insert(ModelContracts.LocationModel.buildContentUri(), cv);
+            Log.d(TAG, String.format("Location inserted DB: %s", insertUri.toString()));
         }
 
-
-        //Locations
-        Uri insertUri = contentResolver.insert(ModelContracts.LocationModel.buildContentUri(), cv);
-        Log.d(TAG, String.format("Locations inserted DB: %s", insertUri.toString()));
     }
 }

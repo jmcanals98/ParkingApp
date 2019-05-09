@@ -76,8 +76,8 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         float zoom = 13;
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(tgn, zoom));
 
-        // Colocar un marcador en la misma posición
-        queryBaseData();
+        // Colocar markers en el mapa.p
+        queryBaseData(map);
         map.addMarker(new MarkerOptions().position(tgn));
 
         if (ActivityCompat.checkSelfPermission(this.getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this.getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -93,19 +93,39 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         map.setMyLocationEnabled(true);
     }
 
-    protected void queryBaseData()
+    protected void queryBaseData(GoogleMap map)
     {
         ContentResolver contentResolver = getActivity().getContentResolver();
 
 
         String defaultOrder = ModelContracts.LocationModel.DEFAULT_SORT;
         String projections[] = ModelContracts.LocationModel.DEFAULT_PROJECTIONS;
-        String selection = "company_number=?";
+        String selection = "id=?";
         String selectionArgs[] = ModelContracts.LocationModel.buildDefaultSelectionArgs(1);
 
+        Cursor cursor = contentResolver.query(ModelContracts.LocationModel.buildContentUri(),projections,null,null,defaultOrder);
+        int numElements = cursor.getCount();
+
+        cursor.moveToFirst();
+        for (int i=0;i<numElements;i++){
+            String lat  = cursor.getString(cursor.getColumnIndex(ModelContracts.LocationModel.LATITUDE));
+            String lon  = cursor.getString(cursor.getColumnIndex(ModelContracts.LocationModel.LONGITUDE));
+
+
+            LatLng marker = new LatLng(Double.parseDouble(lat), Double.parseDouble(lon));
+            map.addMarker(new MarkerOptions().position(marker));
+            cursor.moveToNext();
+        }
+
+        Log.d(TAG,String.format("Number of elements obtained with query: %d", numElements));
     }
 
-
+    private boolean checkPermission() {
+        Log.d(TAG, "checkPermission()");
+        // Ask for permission if it wasn't granted yet
+        return (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED );
+    }
 
 
 }
