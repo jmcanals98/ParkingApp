@@ -128,13 +128,6 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         Log.d(TAG,String.format("Number of elements obtained with query: %d", numElements));
     }
 
-    private boolean checkPermission() {
-        Log.d(TAG, "checkPermission()");
-        // Ask for permission if it wasn't granted yet
-        return (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED );
-    }
-
 
     @Override
     public void onReceiveData(String s) {
@@ -162,17 +155,40 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         ContentResolver contentResolver = getActivity().getContentResolver();
 
         ContentValues cv = new ContentValues();
-        int size=parkings.getParkings().size();
-        for(int i=0; i<parkings.getParkings().size(); i++){
-            cv.put(ModelContracts.ParkingContract.ID,parkings.getParkings().get(i).getId());
-            cv.put(ModelContracts.ParkingContract.NAME,parkings.getParkings().get(i).getName());
-            cv.put(ModelContracts.ParkingContract.COMPANY_NUMBER,parkings.getParkings().get(i).getCompany_number());
-            cv.put(ModelContracts.ParkingContract.LOCATION_ID,parkings.getParkings().get(i).getLocation().getId());
+        for (int i = 0; i < parkings.getParkings().size(); i++) {
+            cv.put(ModelContracts.ParkingContract.ID, parkings.getParkings().get(i).getId());
+            cv.put(ModelContracts.ParkingContract.NAME, parkings.getParkings().get(i).getName());
+            cv.put(ModelContracts.ParkingContract.COMPANY_NUMBER, parkings.getParkings().get(i).getCompany_number());
+            cv.put(ModelContracts.ParkingContract.LOCATION_ID, parkings.getParkings().get(i).getLocation().getId());
 
             Uri insertUri = contentResolver.insert(ModelContracts.ParkingModel.buildContentUri(), cv);
             Log.d(TAG, String.format("Parking inserted DB: %s", insertUri.toString()));
-        }
 
+            ContentResolver contentResolver2 = getActivity().getContentResolver();
+            ContentValues cv2 = new ContentValues();
+            for (int j = 0; j < parkings.getParkings().get(i).getFloors().size(); j++) {
+                cv2.put(ModelContracts.FloorContract.ID, parkings.getParkings().get(i).getFloors().get(j).getId());
+                cv2.put(ModelContracts.FloorContract.COMPANY_NUMBER, parkings.getParkings().get(i).getFloors().get(j).getCompany_number());
+                cv2.put(ModelContracts.FloorContract.NAME, parkings.getParkings().get(i).getFloors().get(j).getName());
+
+                Uri insertUri2 = contentResolver2.insert(ModelContracts.FloorModel.buildContentUri(), cv2);
+                Log.d(TAG, String.format("Floor inserted DB: %s", insertUri2.toString()));
+
+                ContentResolver contentResolver3 = getActivity().getContentResolver();
+                ContentValues cv3 = new ContentValues();
+                for (int k = 0; k < parkings.getParkings().get(i).getFloors().get(j).getSlots().size(); k++) {
+                    cv3.put(ModelContracts.SlotContract.ID, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getId());
+                    cv3.put(ModelContracts.SlotContract.COMPANY_NUMBER, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getCompany_number());
+                    cv3.put(ModelContracts.SlotContract.FLOOR_ID, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getFloor_id());
+                    cv3.put(ModelContracts.SlotContract.NAME, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getName());
+
+                    Uri insertUri3 = contentResolver3.insert(ModelContracts.SlotModel.buildContentUri(), cv3);
+                    Log.d(TAG, String.format("Slot inserted DB: %s", insertUri3.toString()));
+
+
+                }
+            }
+        }
     }
 }
 
