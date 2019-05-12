@@ -2,11 +2,13 @@ package com.example.parkingapp;
 
 import android.Manifest;
 import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.ColorSpace;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
@@ -32,23 +34,35 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.GsonBuilder;
 
 import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
+import cat.tomasgis.module.communication.CommManager;
+import cat.tomasgis.module.communication.base.AppURL;
+import cat.tomasgis.module.communication.listeners.IDataReceiver;
+import cat.tomasgis.module.communication.listeners.StringResponseListener;
 
 import static android.content.ContentValues.TAG;
 
 
-public class MapsFragment extends SupportMapFragment implements OnMapReadyCallback {
+public class MapsFragment extends SupportMapFragment implements OnMapReadyCallback, IDataReceiver {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private GoogleMap mMap;
     private static final String TAG = MainActivity.class.getSimpleName();
     private Locations locations;
+    private Parkings parkings;
+    StringResponseListener stringListener = new StringResponseListener(this);
+    private static final String TAG2 = cat.tomasgis.module.communication.commapptesting.MainActivity.class.getSimpleName();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = super.onCreateView(inflater, container, savedInstanceState);
 
         getMapAsync(this);
+
+        CommManager.initializeQueu(this.getContext());
+        if (!CommManager.callRequest(AppURL.PARKING_URL, stringListener))
+            Toast.makeText(this.getContext(), "Call error", Toast.LENGTH_SHORT).show();
 
         return rootView;
     }
@@ -128,4 +142,43 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
     }
 
 
+    @Override
+    public void onReceiveData(String s) {
+        if (s != null) {
+            if (s.length() > 0) {
+                Toast.makeText(this.getContext(), "Data received", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, s);
+                downloadParkings(s);
+            }
+
+        } else {
+            Toast.makeText(this.getContext(), "Data NOT received", Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "No data to show");
+        }
+
+        createBaseData();
+    }
+
+    private void downloadParkings(String data) {
+        String parseString = "{\"parkings\":" + data + "}";
+        GsonBuilder gson = new GsonBuilder();
+        Parkings parkings = gson.create().fromJson(parseString, Parkings.class);
+    }
+    protected void createBaseData() {
+        ContentResolver contentResolver = getActivity().getContentResolver();
+
+        ContentValues cv = new ContentValues();
+        int size=parkings.getParkings().size();
+        for(int i=0; i<parkings.getParkings().size(); i++){
+            cv.put(ModelContracts.ParkingContract.ID,parkings.getParkings().get(i).getId());
+            cv.put(ModelContracts.ParkingContract.NAME,parkings.getParkings().get(i).getName());
+            cv.put(ModelContracts.ParkingContract.COMPANY_NUMBER,parkings.getParkings().get(i).getCompany_number());
+            cv.put(ModelContracts.ParkingContract.LOCATION_ID,parkings.getParkings().get(i).getLocation().getId());
+
+            Uri insertUri = contentResolver.insert(ModelContracts.ParkingModel.buildContentUri(), cv);
+            Log.d(TAG, String.format("Parking inserted DB: %s", insertUri.toString()));
+        }
+
+    }
 }
+

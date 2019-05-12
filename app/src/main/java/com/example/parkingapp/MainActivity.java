@@ -91,14 +91,6 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
 
         createBaseData();
 
-
-        if (s != null) {
-            if (s.length() > 0) {
-                Toast.makeText(this, "Data received", Toast.LENGTH_SHORT).show();
-                Log.d(TAG, s);
-            }
-        }
-
     }
 
     private void downloadParkings(String data) {
