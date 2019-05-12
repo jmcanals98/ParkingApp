@@ -92,19 +92,13 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
 
         // Colocar markers en el mapa.p
         queryBaseData(map);
-        map.addMarker(new MarkerOptions().position(tgn));
 
         if (ActivityCompat.checkSelfPermission(this.getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this.getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+            ActivityCompat.requestPermissions(this.getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             return;
+        }else{
+            map.setMyLocationEnabled(true);
         }
-        map.setMyLocationEnabled(true);
     }
 
     protected void queryBaseData(GoogleMap map)
@@ -162,7 +156,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
     private void downloadParkings(String data) {
         String parseString = "{\"parkings\":" + data + "}";
         GsonBuilder gson = new GsonBuilder();
-        Parkings parkings = gson.create().fromJson(parseString, Parkings.class);
+        parkings = gson.create().fromJson(parseString, Parkings.class);
     }
     protected void createBaseData() {
         ContentResolver contentResolver = getActivity().getContentResolver();
