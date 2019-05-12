@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:layout_height="35dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="8dp"
         android:contentDescription="@string/burguer_button"
@@ -22,7 +22,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.016" />
 
     <TextView
         android:id="@+id/textView4"
@@ -41,216 +41,31 @@
         app:fontFamily="@font/bebasneue_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.012"
         tools:text="PARK IT!" />
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="422dp"
-        android:layout_height="502dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="163dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="66dp"
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.823">
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        android:background="@color/colorPrimaryDark">
 
-
-        <LinearLayout
+        <ListView
+            android:id="@+id/lvParkingItems"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="0dp"
-                android:background="@color/colorPrimary"
-
-                android:orientation="horizontal"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/ivP1"
-                    android:layout_width="208dp"
-                    android:layout_height="125dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/rambla_acceso" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView41"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="Parking La Rambla"
-                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                        android:textSize="24sp" />
-
-                    <ImageView
-                        android:id="@+id/imageView7"
-                        android:layout_width="173dp"
-                        android:layout_height="35dp"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-                    <TextView
-                        android:id="@+id/textView42"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="12 free spaces"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/textView44"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="500 metres"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:background="@color/colorPrimary"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView9"
-                    android:layout_width="208dp"
-                    android:layout_height="125dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/rambla_escaleras" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView45"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="Parking la Rambla 2"
-                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                        android:textSize="24sp" />
-
-                    <ImageView
-                        android:id="@+id/imageView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-                    <TextView
-                        android:id="@+id/textView46"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="20 free spaces"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/textView47"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="650 metres"
-                        android:textSize="18sp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:background="@color/colorPrimary"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView12"
-                    android:layout_width="208dp"
-                    android:layout_height="125dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/placa_font" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView48"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="Parking Plaça de la Font"
-                        android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                        android:textSize="24sp" />
-
-                    <ImageView
-                        android:id="@+id/imageView13"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-                    <TextView
-                        android:id="@+id/textView49"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="20 free spaces"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/textView50"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="650 metres"
-                        android:textSize="18sp" />
-                </LinearLayout>
-            </LinearLayout>
-
-
-        </LinearLayout>
-    </ScrollView>
+            android:background="@color/colorPrimaryDark"
+            android:dividerHeight="30.0sp" />
+    </android.support.v4.widget.NestedScrollView>
 
     <ImageView
         android:id="@+id/ivFilter"
@@ -258,8 +73,8 @@
         android:layout_height="52dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="17dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="16dp"
         android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -272,13 +87,17 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ivFilter"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0">
 
     </SearchView>
 
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

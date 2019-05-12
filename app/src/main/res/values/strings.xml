@@ -39,5 +39,6 @@
     <string name="price">Price</string>
     <string name="name_and_surname">Name and surname</string>
     <string name="paypal_email_com">paypal@email.com</string>
+    <string name="tvparkingname">tvParkingName</string>
 
 </resources>
