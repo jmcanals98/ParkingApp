@@ -1,6 +1,7 @@
 package com.example.parkingapp;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -31,6 +32,7 @@ public class ParkingCursorAdapter extends CursorAdapter {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
         TextView tvParkingName = (TextView) view.findViewById(R.id.tvParkingName);
+        TextView parkingAddress =(TextView) view.findViewById(R.id.tvAddressParkingList);
         ImageView parkingPhoto=(ImageView)view.findViewById(R.id.ivParkingListPhoto);
 
         String name =cursor.getString(cursor.getColumnIndexOrThrow(ModelContracts.ParkingModel.NAME));
@@ -45,13 +47,20 @@ public class ParkingCursorAdapter extends CursorAdapter {
                 parkingPhoto.setImageResource(R.drawable.parkingreus);
                 break;
         }
+
+        ContentResolver contentResolver = context.getContentResolver();
+        String locID=cursor.getString(cursor.getColumnIndex(ModelContracts.ParkingModel.LOCATION_ID));
+        Cursor cursor2 = contentResolver.query(ModelContracts.LocationModel.buildContentUri(), ModelContracts.LocationModel.DEFAULT_PROJECTIONS,ModelContracts.LocationModel.buildIdSelection(), ModelContracts.LocationModel.buildIdSelectionArgs(Integer.parseInt(locID)), ModelContracts.LocationModel.DEFAULT_SORT);
+        cursor2.moveToFirst();
+        String streetString = "C/ "+cursor2.getString(cursor2.getColumnIndex(ModelContracts.LocationModel.STREET_ADDRESS));
+
+        parkingAddress.setText(streetString);
+
         String cn =cursor.getString(cursor.getColumnIndexOrThrow(ModelContracts.ParkingModel.COMPANY_NUMBER));
+
         view.setTag(cn);
 
         tvParkingName.setText(name);
-
-
-
     }
 
 }

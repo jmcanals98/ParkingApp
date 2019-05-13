@@ -170,7 +170,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                 cv2.put(ModelContracts.FloorContract.ID, parkings.getParkings().get(i).getFloors().get(j).getId());
                 cv2.put(ModelContracts.FloorContract.COMPANY_NUMBER, parkings.getParkings().get(i).getFloors().get(j).getCompany_number());
                 cv2.put(ModelContracts.FloorContract.NAME, parkings.getParkings().get(i).getFloors().get(j).getName());
-                cv2.put(ModelContracts.FloorContract.PARKING_ID, parkings.getParkings().get(i).getFloors().get(j).getParking_id());
+                cv2.put(ModelContracts.FloorContract.PARKING_ID, parkings.getParkings().get(i).getFloors().get(j).getCompany_number());
 
                 Uri insertUri2 = contentResolver2.insert(ModelContracts.FloorModel.buildContentUri(), cv2);
                 Log.d(TAG, String.format("Floor inserted DB: %s", insertUri2.toString()));
@@ -180,7 +180,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                 for (int k = 0; k < parkings.getParkings().get(i).getFloors().get(j).getSlots().size(); k++) {
                     cv3.put(ModelContracts.SlotContract.ID, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getId());
                     cv3.put(ModelContracts.SlotContract.COMPANY_NUMBER, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getCompany_number());
-                    cv3.put(ModelContracts.SlotContract.FLOOR_ID, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getFloor_id());
+                    cv3.put(ModelContracts.SlotContract.FLOOR_ID, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getCompany_number());
                     cv3.put(ModelContracts.SlotContract.NAME, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getName());
                     cv3.put(ModelContracts.SlotContract.SLOT_TYPE, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getSlot_type());
                     cv3.put(ModelContracts.SlotContract.SLOT_COLOR, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getSlot_color());
