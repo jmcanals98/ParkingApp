@@ -28,6 +28,8 @@ public class ParkingCursorAdapter extends CursorAdapter {
         TextView tvParkingName = (TextView) view.findViewById(R.id.tvParkingName);
 
         String name =cursor.getString(cursor.getColumnIndexOrThrow(ModelContracts.ParkingModel.NAME));
+        String cn =cursor.getString(cursor.getColumnIndexOrThrow(ModelContracts.ParkingModel.COMPANY_NUMBER));
+        view.setTag(cn);
 
         tvParkingName.setText(name);
     }

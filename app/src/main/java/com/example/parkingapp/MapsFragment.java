@@ -121,7 +121,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
 
 
             LatLng marker = new LatLng(Double.parseDouble(lat), Double.parseDouble(lon));
-            map.addMarker(new MarkerOptions().position(marker));
+            map.addMarker(new MarkerOptions().position(marker).title(cursor.getString(cursor.getColumnIndex(ModelContracts.LocationModel.NAME))));
             cursor.moveToNext();
         }
 

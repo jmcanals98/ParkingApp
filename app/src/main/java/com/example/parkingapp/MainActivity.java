@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
         int size=locations.getLocations().size();
         for(int i=0; i<locations.getLocations().size(); i++){
             cv.put(ModelContracts.LocationContract.ID,locations.getLocations().get(i).getId());
-            cv.put(ModelContracts.LocationContract.NAME,"NEWYORK");
+            cv.put(ModelContracts.LocationContract.NAME,locations.getLocations().get(i).getCity());
             cv.put(ModelContracts.LocationContract.POSTAL_CODE,locations.getLocations().get(i).getPostal_code());
             cv.put(ModelContracts.LocationContract.STREET_ADDRESS, locations.getLocations().get(i).getStreet_address());
             cv.put(ModelContracts.LocationContract.STATE_PROVINCE, locations.getLocations().get(i).getState_province());
