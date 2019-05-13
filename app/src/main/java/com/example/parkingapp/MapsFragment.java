@@ -190,8 +190,12 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                     Uri insertUri3 = contentResolver3.insert(ModelContracts.SlotModel.buildContentUri(), cv3);
                     Log.d(TAG, String.format("Slot inserted DB: %s", insertUri3.toString()));
                 }
+
             }
+
         }
+
+
     }
 }
 
