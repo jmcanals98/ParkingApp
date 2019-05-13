@@ -108,8 +108,8 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
 
         String defaultOrder = ModelContracts.LocationModel.DEFAULT_SORT;
         String projections[] = ModelContracts.LocationModel.DEFAULT_PROJECTIONS;
-        String selection = "id=?";
-        String selectionArgs[] = ModelContracts.LocationModel.buildDefaultSelectionArgs(1);
+        //String selection = ModelContracts.SlotModel.buildFloorStateTypeSelection();
+        //String selectionArgs[] = ModelContracts.SlotModel.buildFloorStateTypeSelectionArgs(null,"FREE",null);
 
         Cursor cursor = contentResolver.query(ModelContracts.LocationModel.buildContentUri(),projections,null,null,defaultOrder);
         int numElements = cursor.getCount();
@@ -170,6 +170,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                 cv2.put(ModelContracts.FloorContract.ID, parkings.getParkings().get(i).getFloors().get(j).getId());
                 cv2.put(ModelContracts.FloorContract.COMPANY_NUMBER, parkings.getParkings().get(i).getFloors().get(j).getCompany_number());
                 cv2.put(ModelContracts.FloorContract.NAME, parkings.getParkings().get(i).getFloors().get(j).getName());
+                cv2.put(ModelContracts.FloorContract.PARKING_ID, parkings.getParkings().get(i).getFloors().get(j).getParking_id());
 
                 Uri insertUri2 = contentResolver2.insert(ModelContracts.FloorModel.buildContentUri(), cv2);
                 Log.d(TAG, String.format("Floor inserted DB: %s", insertUri2.toString()));
@@ -181,11 +182,13 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                     cv3.put(ModelContracts.SlotContract.COMPANY_NUMBER, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getCompany_number());
                     cv3.put(ModelContracts.SlotContract.FLOOR_ID, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getFloor_id());
                     cv3.put(ModelContracts.SlotContract.NAME, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getName());
+                    cv3.put(ModelContracts.SlotContract.SLOT_TYPE, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getSlot_type());
+                    cv3.put(ModelContracts.SlotContract.SLOT_COLOR, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getSlot_color());
+                    cv3.put(ModelContracts.SlotContract.SLOT_STATE, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getSlot_state());
+                    cv3.put(ModelContracts.SlotContract.STATE_CHANGE_DATE, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getState_change_date());
 
                     Uri insertUri3 = contentResolver3.insert(ModelContracts.SlotModel.buildContentUri(), cv3);
                     Log.d(TAG, String.format("Slot inserted DB: %s", insertUri3.toString()));
-
-
                 }
             }
         }

@@ -6,6 +6,16 @@ public class Floor {
     int id;
     int company_number;
     String name;
+    int parking_id;
+
+    public int getParking_id() {
+        return parking_id;
+    }
+
+    public void setParking_id(int parking_id) {
+        this.parking_id = parking_id;
+    }
+
     List<Slot> slots;
 
     public int getId() {
