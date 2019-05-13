@@ -58,11 +58,10 @@ public class ParkingListActivity extends AppCompatActivity {
         Cursor cursor = contentResolver.query(ModelContracts.ParkingModel.buildContentUri(), ModelContracts.ParkingModel.DEFAULT_PROJECTIONS,null, null, ModelContracts.ParkingModel.DEFAULT_SORT);
 
         cursor.moveToFirst();
-        int num=cursor.getCount();
 
         for (int i=0;i<cursor.getCount();i++){
             ListView lvItems = (ListView) findViewById(R.id.lvParkingItems);
-            ParkingCursorAdapter parkingAdapter = new ParkingCursorAdapter(this, cursor,i);
+            ParkingCursorAdapter parkingAdapter = new ParkingCursorAdapter(this, cursor,0);
             lvItems.setAdapter(parkingAdapter);
             cursor.moveToNext();
         }
