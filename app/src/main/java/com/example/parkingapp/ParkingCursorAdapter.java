@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CursorAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -30,8 +31,20 @@ public class ParkingCursorAdapter extends CursorAdapter {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
         TextView tvParkingName = (TextView) view.findViewById(R.id.tvParkingName);
+        ImageView parkingPhoto=(ImageView)view.findViewById(R.id.ivParkingListPhoto);
 
         String name =cursor.getString(cursor.getColumnIndexOrThrow(ModelContracts.ParkingModel.NAME));
+        switch (name){
+            case "Parking Catalunya":
+                parkingPhoto.setImageResource(R.drawable.parkingcatalunya);
+                break;
+            case "Parking Sescelades":
+                parkingPhoto.setImageResource(R.drawable.parkingsescelades);
+                break;
+            case "Parking Reus FEE":
+                parkingPhoto.setImageResource(R.drawable.parkingreus);
+                break;
+        }
         String cn =cursor.getString(cursor.getColumnIndexOrThrow(ModelContracts.ParkingModel.COMPANY_NUMBER));
         view.setTag(cn);
 

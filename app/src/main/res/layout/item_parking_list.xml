@@ -21,12 +21,12 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/ivParkingListPhoto"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.011" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivParkingListPhoto"
         android:layout_width="135dp"
         android:layout_height="135dp"
         android:scaleType="centerCrop"
@@ -45,7 +45,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.479"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/ivParkingListPhoto"
         app:layout_constraintTop_toBottomOf="@+id/tvParkingName"
         app:srcCompat="@android:drawable/btn_star_big_off" />
 
@@ -61,6 +61,6 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/ivParkingListPhoto"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 </android.support.constraint.ConstraintLayout>

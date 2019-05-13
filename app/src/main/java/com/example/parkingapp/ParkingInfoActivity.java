@@ -3,10 +3,12 @@ package com.example.parkingapp;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
@@ -14,7 +16,7 @@ import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
 public class ParkingInfoActivity extends AppCompatActivity {
 
     private ImageView back;
-    private ImageView floor1;
+    private ImageView parkingPhoto;
     private TextView name;
     private TextView street;
 
@@ -24,10 +26,10 @@ public class ParkingInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_parking_info);
 
         back = (ImageView)findViewById(R.id.ivBack);
-        floor1= (ImageView)findViewById(R.id.ivFloor1);
+        //floor1= (ImageView)findViewById(R.id.ivFloor1);
         name=(TextView)findViewById(R.id.tvNameParkingInfo);
         street=(TextView)findViewById(R.id.tvStreetParkingInfo);
-
+        parkingPhoto = (ImageView)findViewById(R.id.ivParkingInfoPhoto);
 
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -37,12 +39,12 @@ public class ParkingInfoActivity extends AppCompatActivity {
             }
         });
 
-        floor1.setOnClickListener(new View.OnClickListener() {
+        /*floor1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ParkingInfoActivity.this, FloorInfoActivity.class));
             }
-        });
+        });*/
 
         String cn = getIntent().getStringExtra("companyname");
 
@@ -56,7 +58,21 @@ public class ParkingInfoActivity extends AppCompatActivity {
 
         Cursor cursor = contentResolver.query(ModelContracts.ParkingModel.buildContentUri(), projections,selection, ModelContracts.ParkingModel.buildDefaultSelectionArgs(numCN), defaultOrder);
         cursor.moveToFirst();
-        name.setText(cursor.getString(cursor.getColumnIndex(ModelContracts.ParkingModel.NAME)));
+        String parkingName=cursor.getString(cursor.getColumnIndex(ModelContracts.ParkingModel.NAME));
+        name.setText(parkingName);
+
+        switch (parkingName){
+            case "Parking Catalunya":
+                parkingPhoto.setImageResource(R.drawable.parkingcatalunya);
+                break;
+            case "Parking Sescelades":
+                parkingPhoto.setImageResource(R.drawable.parkingsescelades);
+                break;
+            case "Parking Reus FEE":
+                parkingPhoto.setImageResource(R.drawable.parkingreus);
+                break;
+        }
+
         String locID=cursor.getString(cursor.getColumnIndex(ModelContracts.ParkingModel.LOCATION_ID));
 
 
@@ -67,7 +83,16 @@ public class ParkingInfoActivity extends AppCompatActivity {
 
         street.setText(streetString);
 
+        Cursor cursor3 = contentResolver.query(ModelContracts.ParkingModel.buildContentUri(), ModelContracts.ParkingModel.DEFAULT_PROJECTIONS,null, null, ModelContracts.ParkingModel.DEFAULT_SORT);
 
+        cursor3.moveToFirst();
+
+        for(int i=0; i<cursor3.getCount(); i++) {
+            ListView lvItems = (ListView) findViewById(R.id.lvFloorsParkingInfo);
+            FloorParkingInfoCursorAdapter floorAdapter = new FloorParkingInfoCursorAdapter(this, cursor3, 0);
+            lvItems.setAdapter(floorAdapter);
+            cursor3.moveToNext();
+        }
 
 
 

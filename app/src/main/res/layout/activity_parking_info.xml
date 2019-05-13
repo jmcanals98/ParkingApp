@@ -7,17 +7,20 @@
     tools:context=".ParkingInfoActivity"
     android:background="@color/fontColor">
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="667dp"
+        android:layout_height="663dp"
         android:layout_marginTop="64dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/constraintLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/nav_header_height"
             android:layout_marginBottom="15dp"
             android:orientation="vertical">
 
@@ -33,7 +36,7 @@
                 android:textSize="45sp" />
 
             <ImageView
-                android:id="@+id/imageView11"
+                android:id="@+id/ivParkingInfoPhoto"
                 android:layout_width="match_parent"
                 android:layout_height="236dp"
                 android:adjustViewBounds="true"
@@ -121,77 +124,16 @@
                 android:textColor="@color/fontColor"
                 android:textSize="30sp" />
 
-            <LinearLayout
+            <ListView
+                android:id="@+id/lvFloorsParkingInfo"
                 android:layout_width="match_parent"
-                android:layout_height="61dp"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
+                android:layout_height="151dp"
+                tools:layout_editor_absoluteX="21dp"
+                tools:layout_editor_absoluteY="602dp" />
 
-                <ImageView
-                    android:id="@+id/ivFloor1"
-                    android:layout_width="1dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/number1" />
-
-                <TextView
-                    android:id="@+id/textView56"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:text="12 free spaces"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingTop="20dp">
-
-                <ImageView
-                    android:id="@+id/imageView20"
-                    android:layout_width="1dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/number2" />
-
-                <TextView
-                    android:id="@+id/textView57"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:text="7 free spaces"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingTop="20dp">
-
-                <ImageView
-                    android:id="@+id/imageView21"
-                    android:layout_width="1dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/number3" />
-
-                <TextView
-                    android:id="@+id/textView58"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:text="18 free spaces"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="18sp" />
-            </LinearLayout>
         </LinearLayout>
 
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -238,8 +180,6 @@
             app:layout_constraintVertical_bias="0.0" />
 
     </android.support.constraint.ConstraintLayout>
-
-
 
 
 </android.support.constraint.ConstraintLayout>
