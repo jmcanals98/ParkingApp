@@ -67,7 +67,7 @@ public class ParkingListActivity extends AppCompatActivity {
             cursor.moveToNext();
         }
 
-        final ListView lv = (ListView) findViewById(R.id.lvParkingItems);
+        ListView lv = (ListView) findViewById(R.id.lvParkingItems);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

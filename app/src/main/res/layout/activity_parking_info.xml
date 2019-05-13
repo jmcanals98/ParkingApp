@@ -18,14 +18,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvName"
+                android:id="@+id/tvNameParkingInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="45sp" />
@@ -34,9 +36,9 @@
                 android:id="@+id/imageView11"
                 android:layout_width="match_parent"
                 android:layout_height="236dp"
-                app:srcCompat="@drawable/rambla_acceso"
                 android:adjustViewBounds="true"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/rambla_acceso" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -50,8 +52,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="20dp"
-                    android:background="@color/transparent"
                     android:layout_weight="1"
+                    android:background="@color/transparent"
                     app:srcCompat="@android:drawable/btn_star_big_off" />
 
                 <ImageView
@@ -96,13 +98,14 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/tvStreetParkingInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="8dp"
                 android:text=" C/ Rambla Nova 33 -650 meters"
-                android:textSize="25sp"
                 android:textColor="@color/colorPrimaryDark"
+                android:textSize="25sp"
                 app:fontFamily="@font/montserrat_regular" />
 
             <TextView
