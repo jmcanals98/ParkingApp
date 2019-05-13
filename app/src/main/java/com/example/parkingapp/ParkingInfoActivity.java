@@ -3,9 +3,11 @@ package com.example.parkingapp;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.ColorSpace;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -83,16 +85,18 @@ public class ParkingInfoActivity extends AppCompatActivity {
 
         street.setText(streetString);
 
-        Cursor cursor3 = contentResolver.query(ModelContracts.ParkingModel.buildContentUri(), ModelContracts.ParkingModel.DEFAULT_PROJECTIONS,null, null, ModelContracts.ParkingModel.DEFAULT_SORT);
-
+        Cursor cursor3 = contentResolver.query(ModelContracts.FloorModel.buildContentUri(), ModelContracts.FloorModel.DEFAULT_PROJECTIONS,"parking_id=?", ModelContracts.FloorModel.buildIdSelectionArgs(numCN), ModelContracts.FloorModel.DEFAULT_SORT);
         cursor3.moveToFirst();
 
-        for(int i=0; i<cursor3.getCount(); i++) {
-            ListView lvItems = (ListView) findViewById(R.id.lvFloorsParkingInfo);
+        String floorID=cursor3.getString(cursor.getColumnIndex(ModelContracts.FloorModel.COMPANY_NUMBER));
+
+        int numElem = cursor3.getCount();
+
+            ListView lvItems = findViewById(R.id.lvFloorsParkingInfo);
             FloorParkingInfoCursorAdapter floorAdapter = new FloorParkingInfoCursorAdapter(this, cursor3, 0);
             lvItems.setAdapter(floorAdapter);
             cursor3.moveToNext();
-        }
+
 
 
 
