@@ -34,6 +34,8 @@ public class FloorParkingInfoCursorAdapter extends CursorAdapter {
 
         String floorID=cursor.getString(cursor.getColumnIndex(ModelContracts.FloorModel.ID));
 
+       // Cursor cursor1 = contentResolver.query(ModelContracts.ParkingModel.buildContentUri(),ModelContracts.ParkingModel.DEFAULT_PROJECTIONS,)
+
         String[] result = new String[]{floorID, "FREE"};
         Cursor cursor2 = contentResolver.query(ModelContracts.SlotModel.buildContentUri(), ModelContracts.SlotModel.DEFAULT_PROJECTIONS,"floor_id=? AND slot_state=?", result, ModelContracts.LocationModel.DEFAULT_SORT);
 

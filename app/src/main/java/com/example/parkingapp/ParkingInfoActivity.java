@@ -91,11 +91,11 @@ public class ParkingInfoActivity extends AppCompatActivity {
 
         ListView lvItems = findViewById(R.id.lvFloorsParkingInfo);
         int numElem = cursor3.getCount();
-
+        for(int i=0; i<numElem; i++) {
             FloorParkingInfoCursorAdapter floorAdapter = new FloorParkingInfoCursorAdapter(this, cursor3, 0);
             lvItems.setAdapter(floorAdapter);
             cursor3.moveToNext();
-
+        }
 
 
 
