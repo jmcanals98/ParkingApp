@@ -87,15 +87,13 @@ public class ParkingInfoActivity extends AppCompatActivity {
 
         Cursor cursor3 = contentResolver.query(ModelContracts.FloorModel.buildContentUri(), ModelContracts.FloorModel.DEFAULT_PROJECTIONS,"parking_id=?", ModelContracts.FloorModel.buildIdSelectionArgs(numCN), null);
         cursor3.moveToFirst();
-
+        int prueba =cursor3.getCount();
 
         ListView lvItems = findViewById(R.id.lvFloorsParkingInfo);
-        int numElem = cursor3.getCount();
-        for(int i=0; i<numElem; i++) {
-            FloorParkingInfoCursorAdapter floorAdapter = new FloorParkingInfoCursorAdapter(this, cursor3, 0);
-            lvItems.setAdapter(floorAdapter);
-            cursor3.moveToNext();
-        }
+        FloorParkingInfoCursorAdapter floorAdapter = new FloorParkingInfoCursorAdapter(this, cursor3, 0);
+        lvItems.setAdapter(floorAdapter);
+        cursor3.moveToNext();
+
 
 
 
