@@ -37,10 +37,21 @@ public class FloorParkingInfoCursorAdapter extends CursorAdapter {
        // Cursor cursor1 = contentResolver.query(ModelContracts.ParkingModel.buildContentUri(),ModelContracts.ParkingModel.DEFAULT_PROJECTIONS,)
 
         String[] result = new String[]{floorID, "FREE"};
-        Cursor cursor2 = contentResolver.query(ModelContracts.SlotModel.buildContentUri(), ModelContracts.SlotModel.DEFAULT_PROJECTIONS,"floor_id=? AND slot_state=?", result, ModelContracts.LocationModel.DEFAULT_SORT);
+        Cursor cursor2 = contentResolver.query(ModelContracts.SlotModel.buildContentUri(), ModelContracts.SlotModel.DEFAULT_PROJECTIONS,"floor_id=? AND slot_state=?", result, ModelContracts.SlotModel.DEFAULT_SORT);
 
 
         emptySlots.setText(Integer.toString(cursor2.getCount())+" free slots");
-        floorNumber.setImageResource(R.drawable.number1);
+
+        switch (cursor.getString(cursor.getColumnIndexOrThrow(ModelContracts.FloorModel.NAME))){
+            case ("P1"):floorNumber.setImageResource(R.drawable.number1);
+                    break;
+            case ("P2"):floorNumber.setImageResource(R.drawable.number2);
+                break;
+            case ("P3"):floorNumber.setImageResource(R.drawable.number3);
+                break;
+            case ("P4"):floorNumber.setImageResource(R.drawable.number4);
+                break;
+        }
+
     }
 }

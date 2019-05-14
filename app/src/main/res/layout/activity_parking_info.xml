@@ -2,25 +2,26 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ParkingInfoActivity"
-    android:background="@color/fontColor">
+    android:background="@color/fontColor"
+    tools:context=".ParkingInfoActivity">
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="663dp"
         android:layout_marginTop="64dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/constraintLayout">
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/nav_header_height"
+            android:layout_height="match_parent"
             android:layout_marginBottom="15dp"
             android:orientation="vertical">
 
@@ -28,26 +29,31 @@
                 android:id="@+id/tvNameParkingInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="44dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="45sp" />
+                android:textSize="45sp"
+                app:layout_constraintBottom_toTopOf="@+id/ivParkingInfoPhoto"
+                tools:layout_editor_absoluteX="0dp" />
 
             <ImageView
                 android:id="@+id/ivParkingInfoPhoto"
                 android:layout_width="match_parent"
                 android:layout_height="236dp"
+                android:layout_marginTop="136dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/rambla_acceso" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/rambla_acceso"
+                tools:layout_editor_absoluteX="0dp" />
 
             <LinearLayout
+                android:id="@+id/linearLayout4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/ivParkingInfoPhoto">
 
                 <ImageButton
                     android:id="@+id/imageButton17"
@@ -105,33 +111,45 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="8dp"
+                android:layout_marginTop="20dp"
                 android:text=" C/ Rambla Nova 33 -650 meters"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="25sp"
-                app:fontFamily="@font/montserrat_regular" />
+                app:fontFamily="@font/montserrat_regular"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+                tools:layout_editor_absoluteX="0dp" />
 
             <TextView
                 android:id="@+id/textView55"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="384dp"
                 android:background="@color/colorPrimary"
                 android:fontFamily="@font/montserrat_regular"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="      Floors"
                 android:textColor="@color/fontColor"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNameParkingInfo" />
 
             <ListView
                 android:id="@+id/lvFloorsParkingInfo"
                 android:layout_width="match_parent"
-                android:layout_height="151dp"
-                tools:layout_editor_absoluteX="21dp"
-                tools:layout_editor_absoluteY="602dp" />
+                android:layout_height="155dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView55"
+                app:layout_constraintVertical_bias="0.0" />
 
-        </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
 
     </android.support.v4.widget.NestedScrollView>
 
