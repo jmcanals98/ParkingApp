@@ -17,11 +17,15 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
 
-public class ParkingListActivity extends AppCompatActivity {
+public class ParkingListActivity extends AppCompatActivity implements FilterDialogFragment.ExampleDialogListener {
 
     private ImageView Back;
+
+
+
     private ImageView Filter;
     private ImageView Parking;
+    private String nameType;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,9 +70,9 @@ public class ParkingListActivity extends AppCompatActivity {
             cursor.moveToNext();
         }
 
-        ListView lv = (ListView) findViewById(R.id.lvParkingItems);
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ParkingListActivity.this,ParkingInfoActivity.class);
@@ -80,12 +84,20 @@ public class ParkingListActivity extends AppCompatActivity {
             }
         });
 
+        
+
 
 
     }
     public void openDialog() {
         FilterDialogFragment dialog = new FilterDialogFragment();
         dialog.show(getSupportFragmentManager(), "example dialog");
+
+
+    }
+    @Override
+    public void applyTexts(String type) {
+        nameType=type;
     }
 }
 

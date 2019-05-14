@@ -2,7 +2,9 @@ package com.example.parkingapp;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ public class FilterDialogFragment extends AppCompatDialogFragment {
     private Spinner Orderby;
     private Spinner Type;
     private Spinner Price;
+    private ExampleDialogListener listener;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -35,6 +38,8 @@ public class FilterDialogFragment extends AppCompatDialogFragment {
         adapter = ArrayAdapter.createFromResource(getActivity().getApplicationContext(), R.array.combo_price, android.R.layout.simple_spinner_item);
         Price.setAdapter(adapter);
 
+
+
         builder.setView(view)
                 .setTitle("Do your filter")
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
@@ -46,10 +51,26 @@ public class FilterDialogFragment extends AppCompatDialogFragment {
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                            String type = Type.getSelectedItem().toString();
+                            listener.applyTexts(type);
                     }
                 });
         return builder.create();
 
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            listener = (ExampleDialogListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()+"must implement ExampleDialogListener");
+        }
+    }
+
+    public interface ExampleDialogListener{
+        void applyTexts(String type);
     }
 }
