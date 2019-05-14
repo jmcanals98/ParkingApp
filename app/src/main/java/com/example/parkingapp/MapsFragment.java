@@ -181,7 +181,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                 for (int k = 0; k < parkings.getParkings().get(i).getFloors().get(j).getSlots().size(); k++) {
                     cv3.put(ModelContracts.SlotContract.ID, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getId());
                     cv3.put(ModelContracts.SlotContract.COMPANY_NUMBER, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getCompany_number());
-                    cv3.put(ModelContracts.SlotContract.FLOOR_ID, parkings.getParkings().get(i).getFloors().get(j).getCompany_number());
+                    cv3.put(ModelContracts.SlotContract.FLOOR_ID, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getFloor_id());
                     cv3.put(ModelContracts.SlotContract.NAME, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getName());
                     cv3.put(ModelContracts.SlotContract.SLOT_TYPE, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getSlot_type());
                     cv3.put(ModelContracts.SlotContract.SLOT_COLOR, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getSlot_color());
