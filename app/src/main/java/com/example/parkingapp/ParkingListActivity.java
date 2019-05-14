@@ -15,6 +15,12 @@ import android.widget.ListView;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
 
 public class ParkingListActivity extends AppCompatActivity implements FilterDialogFragment.ExampleDialogListener {
@@ -25,15 +31,15 @@ public class ParkingListActivity extends AppCompatActivity implements FilterDial
 
     private ImageView Filter;
     private ImageView Parking;
-    private String nameType;
+    private String nameType="Selection";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parking_list);
 
         ContentResolver contentResolver = getContentResolver();
-        Back = (ImageView)findViewById(R.id.ivBack);
-        Filter = (ImageView)findViewById(R.id.ivFilter);
+        Back = findViewById(R.id.ivBack);
+        Filter = findViewById(R.id.ivFilter);
         //Parking = (ImageView)findViewById(R.id.ivP1);
 
 
@@ -63,12 +69,11 @@ public class ParkingListActivity extends AppCompatActivity implements FilterDial
         Cursor cursor = contentResolver.query(ModelContracts.ParkingModel.buildContentUri(), ModelContracts.ParkingModel.DEFAULT_PROJECTIONS,null, null, ModelContracts.ParkingModel.DEFAULT_SORT);
 
         cursor.moveToFirst();
-        ListView lvItems = (ListView) findViewById(R.id.lvParkingItems);
-        for (int i=0;i<cursor.getCount();i++){
-            ParkingCursorAdapter parkingAdapter = new ParkingCursorAdapter(this, cursor,0);
-            lvItems.setAdapter(parkingAdapter);
-            cursor.moveToNext();
-        }
+        ListView lvItems = findViewById(R.id.lvParkingItems);
+        ParkingCursorAdapter parkingAdapter = new ParkingCursorAdapter(this, cursor,0);
+        lvItems.setAdapter(parkingAdapter);
+        cursor.moveToNext();
+
 
 
 
@@ -84,8 +89,6 @@ public class ParkingListActivity extends AppCompatActivity implements FilterDial
             }
         });
 
-        
-
 
 
     }
@@ -97,7 +100,37 @@ public class ParkingListActivity extends AppCompatActivity implements FilterDial
     }
     @Override
     public void applyTexts(String type) {
-        nameType=type;
+        nameType=type.toUpperCase();
+        String[] result = new String[]{"FREE", nameType};
+        ContentResolver contentResolver=getContentResolver();
+        Cursor cursor1 = contentResolver.query(ModelContracts.SlotModel.buildContentUri(),ModelContracts.SlotModel.DEFAULT_PROJECTIONS,"slot_state=? AND slot_type=?",result,null );
+
+        int numElem=cursor1.getCount();
+        cursor1.moveToFirst();
+        Set<String> parkingIDs = new HashSet<>();
+        for (int i=0; i<numElem; i++){
+
+            result = new String[]{cursor1.getString(cursor1.getColumnIndex(ModelContracts.SlotModel.FLOOR_ID))};
+            Cursor cursor2 = contentResolver.query(ModelContracts.FloorModel.buildContentUri(),ModelContracts.FloorModel.DEFAULT_PROJECTIONS,"id=?",result,null );
+            cursor2.moveToFirst();
+            for(int j=0; j<cursor2.getCount(); j++){
+                parkingIDs.add(cursor2.getString(cursor2.getColumnIndex(ModelContracts.FloorModel.PARKING_ID)));
+                cursor2.moveToNext();
+            }
+            cursor1.moveToNext();
+        }
+
+        String[] parkingsIdArray = new String[parkingIDs.size()];
+        parkingIDs.toArray(parkingsIdArray);
+
+        Cursor cursor = contentResolver.query(ModelContracts.ParkingModel.buildContentUri(), ModelContracts.ParkingModel.DEFAULT_PROJECTIONS,"company_number=? OR company_number=? OR company_number=?", parkingsIdArray, null);
+        cursor.moveToFirst();
+        ListView lvItems = findViewById(R.id.lvParkingItems);
+        ParkingCursorAdapter parkingAdapter = new ParkingCursorAdapter(this, cursor,0);
+        lvItems.setAdapter(parkingAdapter);
+        cursor.moveToNext();
+
+
     }
 }
 
