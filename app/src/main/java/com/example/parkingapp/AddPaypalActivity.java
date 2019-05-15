@@ -19,6 +19,7 @@ public class AddPaypalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_paypal);
 
+        String choosePaypal=getIntent().getStringExtra("text");
         Back = (ImageView)findViewById(R.id.ivBack);
         Save = (ImageView)findViewById(R.id.ivSave1);
         Name = (EditText) findViewById(R.id.etName);

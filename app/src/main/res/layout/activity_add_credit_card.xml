@@ -57,7 +57,7 @@
 
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/tvCreditCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -107,7 +107,7 @@
         android:textColor="@color/fontColor"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/tvCreditCar" />
 
     <TextView
         android:id="@+id/textView9"
@@ -120,7 +120,7 @@
         android:textColor="@color/fontColor"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/tvCreditCar" />
 
     <EditText
         android:id="@+id/etCardHolder"

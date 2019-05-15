@@ -20,7 +20,7 @@ public class AddCreditCardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_credit_card);
-
+        String chooseCreditCar=getIntent().getStringExtra("text");
         Back = (ImageView)findViewById(R.id.ivBack);
         Save = (ImageView)findViewById(R.id.ivSave);
         CardHolder = (EditText) findViewById(R.id.etCardHolder);
