@@ -52,8 +52,9 @@ public class FloorParkingInfoCursorAdapter extends CursorAdapter {
             case ("P4"):floorNumber.setImageResource(R.drawable.number4);
                 break;
         }
-        view.setTag(cursor.getString(cursor.getColumnIndexOrThrow(ModelContracts.FloorModel._ID)));
 
+        result = new String[]{floorID,cursor.getString(cursor.getColumnIndexOrThrow(ModelContracts.FloorModel.PARKING_ID)) };
+        view.setTag(result);
 
     }
 }

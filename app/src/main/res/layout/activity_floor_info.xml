@@ -68,14 +68,29 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <TextView
-        android:id="@+id/tvFloorNumFloorInfo"
+        android:id="@+id/tvcolored"
         android:layout_width="0dp"
         android:layout_height="53dp"
         android:layout_marginTop="24dp"
         android:background="@color/colorPrimary"
         android:fontFamily="@font/montserrat_bold"
         android:lineSpacingExtra="14sp"
-        android:text="      Floor 1"
+        android:textAlignment="textStart"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvParkingNameFloorInfo" />
+
+    <TextView
+        android:id="@+id/tvFloorNumFloorInfo"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/montserrat_bold"
+        android:lineSpacingExtra="14sp"
         android:textAlignment="textStart"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +105,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFloorNumFloorInfo">
+        app:layout_constraintTop_toBottomOf="@+id/tvcolored">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
