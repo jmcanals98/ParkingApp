@@ -52,7 +52,7 @@ public class FloorParkingInfoCursorAdapter extends CursorAdapter {
             case ("P4"):floorNumber.setImageResource(R.drawable.number4);
                 break;
         }
-        cursor.moveToNext();
+        //cursor.moveToNext();
 
     }
 }
