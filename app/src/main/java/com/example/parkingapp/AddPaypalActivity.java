@@ -9,33 +9,34 @@ import android.widget.ImageView;
 
 public class AddPaypalActivity extends AppCompatActivity {
 
-    private ImageView Back;
-    private  ImageView Save;
-    private EditText Name;
-    private EditText Password;
+    private ImageView back;
+    private  ImageView save;
+    private EditText name;
+    private EditText password;
+    private String choosePaypal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_paypal);
 
-        String choosePaypal=getIntent().getStringExtra("text");
-        Back = (ImageView)findViewById(R.id.ivBack);
-        Save = (ImageView)findViewById(R.id.ivSave1);
-        Name = (EditText) findViewById(R.id.etName);
-        Password = (EditText) findViewById(R.id.etPassword3);
+        choosePaypal=getIntent().getStringExtra("text");
+        back = (ImageView)findViewById(R.id.ivBack);
+        save = (ImageView)findViewById(R.id.ivSave1);
+        name = (EditText) findViewById(R.id.etName);
+        password = (EditText) findViewById(R.id.etPassword3);
 
-        Back.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AddPaypalActivity.this,navmenu_choosepayment.class));
             }
         });
 
-        Save.setOnClickListener(new View.OnClickListener() {
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validatePaypal(Name.getText().toString(),Password.getText().toString());
+                validatePaypal(name.getText().toString(),password.getText().toString());
             }
         });
     }
@@ -44,7 +45,10 @@ public class AddPaypalActivity extends AppCompatActivity {
     {
         if((!userName.isEmpty()) && (!userPassword.isEmpty()))
         {
-            Intent intent = new Intent(AddPaypalActivity.this, NavigationActivity.class);
+            // set MyFragment Arguments
+            Intent intent = new Intent(getBaseContext(), NavigationActivity.class);
+            intent.putExtra("payment method",choosePaypal);
+            intent.putExtra("id",userName);
             startActivity(intent);
         }
     }

@@ -25,6 +25,8 @@ public class NavigationActivity extends AppCompatActivity
     private ImageView Qr;
     private ImageView Info;
     private DrawerLayout mDrawerLayout;
+    private String paymentMethod;
+    private String idPayment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +63,14 @@ public class NavigationActivity extends AppCompatActivity
                 startActivity(new Intent(NavigationActivity.this, ParkingListActivity.class));
             }
         });
+
+        paymentMethod=getIntent().getStringExtra("payment method");
+        idPayment = getIntent().getStringExtra("id");
+
+
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -91,13 +100,19 @@ public class NavigationActivity extends AppCompatActivity
         if (id == R.id.nav_profile) {
             fragment = new ProfileFragment();
         } else if (id == R.id.nav_payment) {
+            Bundle bundle=new Bundle();
+            bundle.putString("payment method", paymentMethod);
+            bundle.putString("id", idPayment);
+
             fragment = new PaymentMethodsFragment();
+            fragment.setArguments(bundle);
+
         } else if (id == R.id.nav_fav) {
             fragment = new FavsFragment();
         } else if (id == R.id.nav_logout) {
             startActivity(new Intent(NavigationActivity.this,MainActivity.class));
         } else if(id == R.id.nav_menu){
-            startActivity(new Intent(NavigationActivity.this, NavigationActivity.class));
+            startActivity(new Intent( NavigationActivity.this, NavigationActivity.class));
         }
         if (fragment!=null){
             FragmentManager fragmentManager=getSupportFragmentManager();
