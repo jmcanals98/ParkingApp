@@ -21,9 +21,9 @@ public class PaymentMethodsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //final View view=inflater.inflate(R.layout.fragment_payment_methods, container, false);
+        View view=inflater.inflate(R.layout.fragment_payment_methods, container, false);
         //deleteImage = (ImageView) view.findViewById(R.id.deleteButton);
-        contex=getActivity();
+        addMethods=(Button) view.findViewById(R.id.bAddPaymentMethods);
         /*deleteImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,20 +48,19 @@ public class PaymentMethodsFragment extends Fragment {
         });
         */
 
-
-        return inflater.inflate(R.layout.fragment_payment_methods,null);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Button addMethods=(Button) contex.findViewById(R.id.bAddPaymentMethods);
-
         addMethods.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(contex,navmenu_choosepayment.class));
+                Intent intent = new Intent(getActivity(),navmenu_choosepayment.class);
+                startActivity(intent);
             }
         });
+
+
+        return view;
+
+
     }
+
+
 }
