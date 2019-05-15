@@ -3,12 +3,10 @@ package com.example.parkingapp;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.ColorSpace;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -92,7 +90,18 @@ public class ParkingInfoActivity extends AppCompatActivity {
         ListView lvItems = findViewById(R.id.lvFloorsParkingInfo);
         FloorParkingInfoCursorAdapter floorAdapter = new FloorParkingInfoCursorAdapter(this, cursor3, 0);
         lvItems.setAdapter(floorAdapter);
-       
+
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ParkingInfoActivity.this,FloorInfoActivity.class);
+
+                String cv = (String) view.getTag();
+                intent.putExtra("id",cv);
+
+                startActivity(intent);
+            }
+        });
 
 
 

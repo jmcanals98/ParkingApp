@@ -2,10 +2,11 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FloorInfoActivity"
-    android:background="@color/fontColor">
+    android:background="@color/fontColor"
+    tools:context=".FloorInfoActivity">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -54,7 +55,7 @@
     </android.support.constraint.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/tvParkingNameFloorInfo"
         android:layout_width="338dp"
         android:layout_height="155dp"
         android:layout_marginStart="16dp"
@@ -76,115 +77,144 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/tvParkingNameFloorInfo" />
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="416dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17"
-        app:layout_constraintVertical_bias="0.304">
+        app:layout_constraintVertical_bias="0.076">
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView18"
+                android:layout_width="76dp"
+                android:layout_height="79dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCarFloorInfo"
+                app:srcCompat="@drawable/motorbike" />
+
+            <TextView
+                android:id="@+id/tvDisableFloorInfo"
+                android:layout_width="73dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="88dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="None"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView23"
+                app:layout_constraintTop_toBottomOf="@+id/tvElectricFloorInfo" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="95dp"
+                android:layout_height="87dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView23"
+                app:srcCompat="@drawable/bike" />
+
+            <ImageView
+                android:id="@+id/imageView23"
+                android:layout_width="81dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView22"
+                app:srcCompat="@drawable/wheelchair" />
+
+            <TextView
+                android:id="@+id/tvBikeFloorInfo"
+                android:layout_width="73dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="76dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="None"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/tvDisableFloorInfo" />
+
+            <ImageView
+                android:id="@+id/imageView22"
+                android:layout_width="76dp"
+                android:layout_height="79dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView18"
+                app:srcCompat="@drawable/electric" />
+
+            <TextView
+                android:id="@+id/tvElectricFloorInfo"
+                android:layout_width="73dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="64dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="None"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView22"
+                app:layout_constraintTop_toBottomOf="@+id/tvMotorbikeFloorInfo" />
+
+            <TextView
+                android:id="@+id/tvMotorbikeFloorInfo"
+                android:layout_width="73dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="56dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="None"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.12"
+                app:layout_constraintStart_toEndOf="@+id/imageView18"
+                app:layout_constraintTop_toBottomOf="@+id/tvCarFloorInfo" />
+
+            <TextView
+                android:id="@+id/tvCarFloorInfo"
+                android:layout_width="73dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="188dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="None"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="76dp"
         android:layout_height="79dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17"
         app:srcCompat="@drawable/car" />
-
-    <ImageView
-        android:id="@+id/imageView18"
-        android:layout_width="76dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:srcCompat="@drawable/motorbike" />
-
-    <ImageView
-        android:id="@+id/imageView22"
-        android:layout_width="76dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView18"
-        app:srcCompat="@drawable/electric" />
-
-    <ImageView
-        android:id="@+id/imageView23"
-        android:layout_width="76dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView22"
-        app:srcCompat="@drawable/wheelchair" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="73dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="56dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="None"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/scrollView3" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="73dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="160dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="None"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toTopOf="@+id/scrollView3" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="73dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="276dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="None"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView22"
-        app:layout_constraintTop_toTopOf="@+id/scrollView3" />
-
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="73dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="388dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="None"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView23"
-        app:layout_constraintTop_toTopOf="@+id/scrollView3" />
 
 </android.support.constraint.ConstraintLayout>
