@@ -130,7 +130,8 @@
         app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.598" />
+        app:layout_constraintVertical_bias="0.598"
+        tools:text="Name" />
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nestedScrollView2"
