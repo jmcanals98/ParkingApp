@@ -22,6 +22,11 @@ public class FloorInfoActivity extends AppCompatActivity {
     private TextView freeSlotsMotorbike;
     private TextView freeSlotsDisabled;
     private TextView freeSlotsBicycle;
+    private ImageView carFloorInfo;
+    private ImageView electricFloorInfo;
+    private ImageView motorbikeFloorInfo;
+    private ImageView disabledFloorInfo;
+    private ImageView bicycleFloorInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +40,12 @@ public class FloorInfoActivity extends AppCompatActivity {
         freeSlotsMotorbike=findViewById(R.id.tvMotorbikeFloorInfo);
         freeSlotsDisabled=findViewById(R.id.tvDisabledFloorInfo4);
         freeSlotsBicycle=findViewById(R.id.tvBicycleFloorInfo);
+
+        carFloorInfo=findViewById(R.id.ivCarFloorInfo);
+        electricFloorInfo=findViewById(R.id.ivElectricFloorInfo);
+        motorbikeFloorInfo=findViewById(R.id.ivMotorbikeFloorInfo);
+        disabledFloorInfo=findViewById(R.id.ivDisabledFloorInfo);
+        bicycleFloorInfo=findViewById(R.id.ivBicycleFloorInfo);
 
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +90,52 @@ public class FloorInfoActivity extends AppCompatActivity {
 
         cursor=contentResolver.query(ModelContracts.SlotModel.buildContentUri(),ModelContracts.SlotModel.DEFAULT_PROJECTIONS,ModelContracts.SlotModel.buildFloorStateTypeSelection(),ModelContracts.SlotModel.buildFloorStateTypeSelectionArgs(floorID, "FREE","BICYCLE" ),null);
         freeSlotsBicycle.setText("Free slots: "+cursor.getCount());
+
+        carFloorInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
+                intent.putExtra("typeSlot","COMMON");
+                startActivity(intent);
+            }
+        });
+        electricFloorInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
+                intent.putExtra("typeSlot","ELECTRIC");
+                startActivity(intent);
+            }
+        });
+
+        motorbikeFloorInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
+                intent.putExtra("typeSlot","MOTORBIKE");
+                startActivity(intent);
+            }
+        });
+
+        disabledFloorInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
+                intent.putExtra("typeSlot","DISABLED");
+                startActivity(intent);
+            }
+        });
+
+        bicycleFloorInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
+                intent.putExtra("typeSlot","BICYCLE");
+                startActivity(intent);
+            }
+        });
+
+
 
 
     }

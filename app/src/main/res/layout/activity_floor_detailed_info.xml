@@ -82,30 +82,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvNameSlot"
+        android:id="@+id/tvSlotName"
         android:layout_width="0dp"
         android:layout_height="53dp"
         android:layout_marginStart="8dp"
         android:background="@color/colorPrimary"
         android:fontFamily="@font/montserrat_bold"
         android:lineSpacingExtra="14sp"
+        android:text="@string/name"
         android:textAlignment="textStart"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvSlotName"
+        app:layout_constraintTop_toTopOf="@+id/tvSlotColor"
         tools:text="Name" />
 
     <TextView
-        android:id="@+id/tvSlotName"
+        android:id="@+id/tvSlotColor"
         android:layout_width="wrap_content"
         android:layout_height="53dp"
         android:layout_marginStart="65dp"
         android:background="@color/colorPrimary"
         android:fontFamily="@font/montserrat_bold"
         android:lineSpacingExtra="14sp"
+        android:text="@string/color"
         android:textAlignment="textStart"
         android:textSize="30sp"
-        app:layout_constraintStart_toEndOf="@+id/tvNameSlot"
+        app:layout_constraintStart_toEndOf="@+id/tvSlotName"
         app:layout_constraintTop_toTopOf="@+id/tvcolored"
         tools:text="Color" />
 
@@ -118,10 +120,11 @@
         android:background="@color/colorPrimary"
         android:fontFamily="@font/montserrat_bold"
         android:lineSpacingExtra="14sp"
+        android:text="@string/state"
         android:textAlignment="textStart"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="@+id/tvcolored"
-        app:layout_constraintStart_toEndOf="@+id/tvSlotName"
+        app:layout_constraintStart_toEndOf="@+id/tvSlotColor"
         app:layout_constraintTop_toTopOf="@+id/tvcolored"
         tools:text="State" />
 

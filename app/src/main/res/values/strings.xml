@@ -40,5 +40,9 @@
     <string name="name_and_surname">Name and surname</string>
     <string name="paypal_email_com">paypal@email.com</string>
     <string name="tvparkingname">tvParkingName</string>
+    <string name="title_activity_slot_info">SlotInfoActivity</string>
+    <string name="name">Name</string>
+    <string name="color">Color</string>
+    <string name="state">State</string>
 
 </resources>

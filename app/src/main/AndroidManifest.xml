@@ -10,9 +10,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -21,8 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
-        tools:replace="android:theme"
-        >
+        tools:replace="android:theme">
+        <activity android:name=".SlotInfoActivity"></activity>
         <activity android:name=".LoginErrorActivity" />
         <activity
             android:name=".NavigationActivity"
@@ -33,13 +32,9 @@
         <activity android:name=".FloorInfoActivity" />
         <activity android:name=".AddPaypalActivity" />
         <activity android:name=".AddCreditCardActivity" />
-        <activity android:name=".navmenu_choosepayment">
-
-        </activity>
+        <activity android:name=".navmenu_choosepayment" />
         <activity android:name=".ParkingInfoActivity" />
-        <activity android:name=".ParkingListActivity">
-
-        </activity>
+        <activity android:name=".ParkingListActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -62,7 +57,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
