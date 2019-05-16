@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fontColor"
+    tools:context=".FloorInfoActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="164dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/miniTitle"
+            android:textColor="@color/fontColor"
+            android:textSize="35sp"
+            app:fontFamily="@font/bebasneue_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="PARK IT!" />
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="58dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/burguer_button"
+            android:src="@drawable/back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/ivSlotType"
+        android:layout_width="159dp"
+        android:layout_height="132dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+    <TextView
+        android:id="@+id/tvcolored"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="268dp"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/montserrat_bold"
+        android:lineSpacingExtra="14sp"
+        android:textAlignment="textStart"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNameSlot"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/montserrat_bold"
+        android:lineSpacingExtra="14sp"
+        android:textAlignment="textStart"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvSlotName"
+        tools:text="Name" />
+
+    <TextView
+        android:id="@+id/tvSlotName"
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:layout_marginStart="65dp"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/montserrat_bold"
+        android:lineSpacingExtra="14sp"
+        android:textAlignment="textStart"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/tvNameSlot"
+        app:layout_constraintTop_toTopOf="@+id/tvcolored"
+        tools:text="Color" />
+
+    <TextView
+        android:id="@+id/tvSlotState"
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/montserrat_bold"
+        android:lineSpacingExtra="14sp"
+        android:textAlignment="textStart"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvcolored"
+        app:layout_constraintStart_toEndOf="@+id/tvSlotName"
+        app:layout_constraintTop_toTopOf="@+id/tvcolored"
+        tools:text="State" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvcolored">
+
+        <ListView
+            android:id="@+id/lvDetailedSlotInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>
