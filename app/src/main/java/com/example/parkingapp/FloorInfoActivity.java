@@ -105,6 +105,7 @@ public class FloorInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
                 intent.putExtra("typeSlot","ELECTRIC");
+                intent.putExtra("floorID",floorID);
                 startActivity(intent);
             }
         });
