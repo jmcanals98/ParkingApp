@@ -130,8 +130,20 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
             cv.put(ModelContracts.LocationContract.STATE_PROVINCE, locations.getLocations().get(i).getState_province());
             cv.put(ModelContracts.LocationContract.LATITUDE, locations.getLocations().get(i).getLatitude());
             cv.put(ModelContracts.LocationContract.LONGITUDE, locations.getLocations().get(i).getLongitude());
-            Uri insertUri = contentResolver.insert(ModelContracts.LocationModel.buildContentUri(), cv);
-            Log.d(TAG, String.format("Location inserted DB: %s", insertUri.toString()));
+
+            String selection = ModelContracts.LocationModel.buildIdSelection();
+            String selectionArgs[] = ModelContracts.LocationModel.buildIdSelectionArgs(locations.getLocations().get(i).getId());
+
+            int numRows = getContentResolver().update(ModelContracts.LocationModel.buildContentUri(),cv,selection,selectionArgs);
+
+            if (numRows <1 ) {
+
+                Uri insertUri = contentResolver.insert(ModelContracts.LocationModel.buildContentUri(), cv);
+                Log.d(TAG, String.format("Location inserted DB: %s", insertUri.toString()));
+            }else{
+                Log.d(TAG, String.format("Location updated"));
+            }
+
         }
 
     }

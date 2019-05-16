@@ -161,8 +161,18 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
             cv.put(ModelContracts.ParkingContract.COMPANY_NUMBER, parkings.getParkings().get(i).getCompany_number());
             cv.put(ModelContracts.ParkingContract.LOCATION_ID, parkings.getParkings().get(i).getLocation().getId());
 
-            Uri insertUri = contentResolver.insert(ModelContracts.ParkingModel.buildContentUri(), cv);
-            Log.d(TAG, String.format("Parking inserted DB: %s", insertUri.toString()));
+            String selection = ModelContracts.ParkingModel.buildIdSelection();
+            String selectionArgs[] = ModelContracts.ParkingModel.buildIdSelectionArgs(parkings.getParkings().get(i).getId());
+
+            int numRows = getActivity().getContentResolver().update(ModelContracts.ParkingModel.buildContentUri(),cv,selection,selectionArgs);
+
+            if (numRows <1 ) {
+                Uri insertUri = contentResolver.insert(ModelContracts.ParkingModel.buildContentUri(), cv);
+                Log.d(TAG, String.format("Parking inserted DB: %s", insertUri.toString()));
+
+            }else{
+                Log.d(TAG, String.format("Parking updated"));
+            }
 
             ContentResolver contentResolver2 = getActivity().getContentResolver();
             ContentValues cv2 = new ContentValues();
@@ -173,8 +183,19 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                 cv2.put(ModelContracts.FloorContract.PARKING_ID, parkings.getParkings().get(i).getCompany_number());
 
 
-                Uri insertUri2 = contentResolver2.insert(ModelContracts.FloorModel.buildContentUri(), cv2);
-                Log.d(TAG, String.format("Floor inserted DB: %s", insertUri2.toString()));
+                selection = ModelContracts.FloorModel.buildIdSelection();
+                String selectionArgs2[] = ModelContracts.FloorModel.buildIdSelectionArgs(parkings.getParkings().get(i).getFloors().get(j).getCompany_number());
+
+                numRows = getActivity().getContentResolver().update(ModelContracts.FloorModel.buildContentUri(),cv2,selection,selectionArgs2);
+
+                if (numRows <1 ) {
+                    Uri insertUri2 = contentResolver2.insert(ModelContracts.FloorModel.buildContentUri(), cv2);
+                    Log.d(TAG, String.format("Floor inserted DB: %s", insertUri2.toString()));
+
+                }else{
+                    Log.d(TAG, String.format("Floor updated"));
+                }
+
 
                 ContentResolver contentResolver3 = getActivity().getContentResolver();
                 ContentValues cv3 = new ContentValues();
@@ -188,8 +209,19 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                     cv3.put(ModelContracts.SlotContract.SLOT_STATE, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getSlot_state());
                     cv3.put(ModelContracts.SlotContract.STATE_CHANGE_DATE, parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getState_change_date());
 
-                    Uri insertUri3 = contentResolver3.insert(ModelContracts.SlotModel.buildContentUri(), cv3);
-                    Log.d(TAG, String.format("Slot inserted DB: %s", insertUri3.toString()));
+                    selection = ModelContracts.SlotModel.buildDefaultSelection();
+                    String selectionArgs3[] = ModelContracts.SlotModel.buildDefaultSelectionArgs(parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getCompany_number());
+
+                    numRows = getActivity().getContentResolver().update(ModelContracts.SlotModel.buildContentUri(),cv3,selection,selectionArgs3);
+
+                    if (numRows <1 ) {
+                        Uri insertUri3 = contentResolver3.insert(ModelContracts.SlotModel.buildContentUri(), cv3);
+                        Log.d(TAG, String.format("Slot inserted DB: %s", insertUri3.toString()));
+
+                    }else{
+                        Log.d(TAG, String.format("Slot updated"));
+                    }
+
                 }
 
             }
