@@ -21,7 +21,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:replace="android:theme">
-        <activity android:name=".SlotInfoActivity"></activity>
+        <activity android:name=".SlotParkingInfoCursorAdapter"></activity>
+        <activity android:name=".SlotInfoActivity" />
         <activity android:name=".LoginErrorActivity" />
         <activity
             android:name=".NavigationActivity"

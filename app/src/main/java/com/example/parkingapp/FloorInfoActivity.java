@@ -56,7 +56,7 @@ public class FloorInfoActivity extends AppCompatActivity {
         });
 
         String parkingCompanyNum = getIntent().getStringExtra("parkingCompanyNum");
-        String floorID = getIntent().getStringExtra("floorID");
+        final String floorID = getIntent().getStringExtra("floorID");
 
         ContentResolver contentResolver = getContentResolver();
         String defaultOrder = ModelContracts.ParkingModel.DEFAULT_SORT;
@@ -96,6 +96,7 @@ public class FloorInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
                 intent.putExtra("typeSlot","COMMON");
+                intent.putExtra("floorID",floorID);
                 startActivity(intent);
             }
         });
@@ -113,6 +114,7 @@ public class FloorInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
                 intent.putExtra("typeSlot","MOTORBIKE");
+                intent.putExtra("floorID",floorID);
                 startActivity(intent);
             }
         });
@@ -122,6 +124,7 @@ public class FloorInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
                 intent.putExtra("typeSlot","DISABLED");
+                intent.putExtra("floorID",floorID);
                 startActivity(intent);
             }
         });
@@ -131,6 +134,7 @@ public class FloorInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
                 intent.putExtra("typeSlot","BICYCLE");
+                intent.putExtra("floorID",floorID);
                 startActivity(intent);
             }
         });

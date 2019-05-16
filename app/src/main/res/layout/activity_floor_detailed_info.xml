@@ -82,53 +82,58 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvSlotName"
-        android:layout_width="0dp"
-        android:layout_height="53dp"
+        android:id="@+id/textView5"
+        android:layout_width="113dp"
+        android:layout_height="38dp"
         android:layout_marginStart="8dp"
-        android:background="@color/colorPrimary"
-        android:fontFamily="@font/montserrat_bold"
-        android:lineSpacingExtra="14sp"
-        android:text="@string/name"
-        android:textAlignment="textStart"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvSlotColor"
-        tools:text="Name" />
-
-    <TextView
-        android:id="@+id/tvSlotColor"
-        android:layout_width="wrap_content"
-        android:layout_height="53dp"
-        android:layout_marginStart="65dp"
-        android:background="@color/colorPrimary"
-        android:fontFamily="@font/montserrat_bold"
-        android:lineSpacingExtra="14sp"
-        android:text="@string/color"
-        android:textAlignment="textStart"
-        android:textSize="30sp"
-        app:layout_constraintStart_toEndOf="@+id/tvSlotName"
-        app:layout_constraintTop_toTopOf="@+id/tvcolored"
-        tools:text="Color" />
-
-    <TextView
-        android:id="@+id/tvSlotState"
-        android:layout_width="wrap_content"
-        android:layout_height="53dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/colorPrimary"
-        android:fontFamily="@font/montserrat_bold"
-        android:lineSpacingExtra="14sp"
+        android:layout_marginBottom="224dp"
         android:text="@string/state"
-        android:textAlignment="textStart"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvcolored"
-        app:layout_constraintStart_toEndOf="@+id/tvSlotColor"
-        app:layout_constraintTop_toTopOf="@+id/tvcolored"
-        tools:text="State" />
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/nestedScrollView2"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintHorizontal_bias="0.944"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.598" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="113dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="224dp"
+        android:text="@string/color"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/nestedScrollView2"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.598" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="113dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="224dp"
+        android:text="@string/name"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/nestedScrollView2"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintHorizontal_bias="0.027"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.598" />
 
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
