@@ -14,7 +14,7 @@ import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
 
 public class FloorInfoActivity extends AppCompatActivity {
 
-    private ImageView back;
+    private ImageView back1;
     private TextView parkingName;
     private TextView floorName;
     private TextView freeSlotsCar;
@@ -27,12 +27,14 @@ public class FloorInfoActivity extends AppCompatActivity {
     private ImageView motorbikeFloorInfo;
     private ImageView disabledFloorInfo;
     private ImageView bicycleFloorInfo;
+    private String parkingCompanyNum;
+    private  String floorID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_floor_info);
 
-        back =findViewById(R.id.ivBack);
+        back1 =findViewById(R.id.ivBack);
         parkingName=findViewById(R.id.tvParkingNameFloorInfo);
         floorName=findViewById(R.id.tvFloorNumFloorInfo);
         freeSlotsCar=findViewById(R.id.tvCarFloorInfo);
@@ -48,15 +50,19 @@ public class FloorInfoActivity extends AppCompatActivity {
         bicycleFloorInfo=findViewById(R.id.ivBicycleFloorInfo);
 
 
-        back.setOnClickListener(new View.OnClickListener() {
+         parkingCompanyNum = getIntent().getStringExtra("parkingCompanyNum");
+         floorID = getIntent().getStringExtra("floorID");
+
+        back1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FloorInfoActivity.this, ParkingInfoActivity.class));
+                Intent intent = new Intent(FloorInfoActivity.this,ParkingInfoActivity.class);
+                intent.putExtra("companyname",parkingCompanyNum);
+
+                startActivity(intent);
             }
         });
 
-        String parkingCompanyNum = getIntent().getStringExtra("parkingCompanyNum");
-        final String floorID = getIntent().getStringExtra("floorID");
 
         ContentResolver contentResolver = getContentResolver();
         String defaultOrder = ModelContracts.ParkingModel.DEFAULT_SORT;
@@ -97,6 +103,7 @@ public class FloorInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
                 intent.putExtra("typeSlot","COMMON");
                 intent.putExtra("floorID",floorID);
+                intent.putExtra("parkingID",parkingCompanyNum);
                 startActivity(intent);
             }
         });
@@ -106,6 +113,7 @@ public class FloorInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
                 intent.putExtra("typeSlot","ELECTRIC");
                 intent.putExtra("floorID",floorID);
+                intent.putExtra("parkingID",parkingCompanyNum);
                 startActivity(intent);
             }
         });
@@ -116,6 +124,7 @@ public class FloorInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
                 intent.putExtra("typeSlot","MOTORBIKE");
                 intent.putExtra("floorID",floorID);
+                intent.putExtra("parkingID",parkingCompanyNum);
                 startActivity(intent);
             }
         });
@@ -126,6 +135,7 @@ public class FloorInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
                 intent.putExtra("typeSlot","DISABLED");
                 intent.putExtra("floorID",floorID);
+                intent.putExtra("parkingID",parkingCompanyNum);
                 startActivity(intent);
             }
         });
@@ -136,6 +146,7 @@ public class FloorInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(FloorInfoActivity.this,SlotInfoActivity.class);
                 intent.putExtra("typeSlot","BICYCLE");
                 intent.putExtra("floorID",floorID);
+                intent.putExtra("parkingID",parkingCompanyNum);
                 startActivity(intent);
             }
         });

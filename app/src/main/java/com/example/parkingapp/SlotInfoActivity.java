@@ -1,9 +1,11 @@
 package com.example.parkingapp;
 
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -12,16 +14,32 @@ import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
 public class SlotInfoActivity extends AppCompatActivity {
 
     private ImageView imageSlotType;
+    private ImageView back;
+    private String typeSlot;
+    private String floorID;
+    private String parkingID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_floor_detailed_info);
 
-        String typeSlot = getIntent().getStringExtra("typeSlot");
-        String floorID = getIntent().getStringExtra("floorID");
+        typeSlot = getIntent().getStringExtra("typeSlot");
+        floorID = getIntent().getStringExtra("floorID");
+        parkingID = getIntent().getStringExtra("parkingID");
 
         imageSlotType = findViewById(R.id.ivSlotType);
+        back=findViewById(R.id.ivBack);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SlotInfoActivity.this,FloorInfoActivity.class);
+                intent.putExtra("parkingCompanyNum",parkingID);
+                intent.putExtra("floorID",floorID);
+                startActivity(intent);
+            }
+        });
 
         switch (typeSlot) {
             case "COMMON":
