@@ -1,6 +1,8 @@
 package com.example.parkingapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +20,7 @@ public class AddCreditCardActivity extends AppCompatActivity {
     private EditText yearMonth;
     private EditText cvv;
     private String chooseCreditCar;
+    private SharedPreferences paymentPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +34,7 @@ public class AddCreditCardActivity extends AppCompatActivity {
         yearMonth = (EditText) findViewById(R.id.etYearMonth);
         cvv = (EditText) findViewById(R.id.etCVV);
 
-        FragmentManager manager=getSupportFragmentManager();
-        FragmentTransaction t=manager.beginTransaction();
-        PaymentMethodsFragment myObj = new PaymentMethodsFragment();
+
 
 
         Back.setOnClickListener(new View.OnClickListener() {
@@ -55,9 +56,13 @@ public class AddCreditCardActivity extends AppCompatActivity {
     {
         if((!userCardHolder.isEmpty()) && (!userCardNumber.isEmpty()) && (!userYearMonth.isEmpty()) && (!userCVV.isEmpty()))
         {
+            paymentPreferences= getSharedPreferences("paymentMethods", Context.MODE_PRIVATE);
+
+            SharedPreferences.Editor editor=paymentPreferences.edit();
+            editor.putString("payment_ID",userCardNumber);
+            editor.commit();
+
             Intent intent = new Intent(getBaseContext(), NavigationActivity.class);
-            intent.putExtra("payment method",chooseCreditCar);
-            intent.putExtra("id",userCardNumber);
             startActivity(intent);
 
         }

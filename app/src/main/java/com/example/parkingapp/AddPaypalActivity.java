@@ -1,6 +1,8 @@
 package com.example.parkingapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,7 @@ public class AddPaypalActivity extends AppCompatActivity {
     private EditText name;
     private EditText password;
     private String choosePaypal;
+    private SharedPreferences paymentPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,7 @@ public class AddPaypalActivity extends AppCompatActivity {
         save = (ImageView)findViewById(R.id.ivSave1);
         name = (EditText) findViewById(R.id.etName);
         password = (EditText) findViewById(R.id.etPassword3);
+
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,10 +49,14 @@ public class AddPaypalActivity extends AppCompatActivity {
     {
         if((!userName.isEmpty()) && (!userPassword.isEmpty()))
         {
+            paymentPreferences= getSharedPreferences("paymentMethods", Context.MODE_PRIVATE);
+
+            SharedPreferences.Editor editor=paymentPreferences.edit();
+            editor.putString("payment_ID",userName);
+            editor.commit();
+
             // set MyFragment Arguments
             Intent intent = new Intent(getBaseContext(), NavigationActivity.class);
-            intent.putExtra("payment method",choosePaypal);
-            intent.putExtra("id",userName);
             startActivity(intent);
         }
     }

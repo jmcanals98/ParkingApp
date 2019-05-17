@@ -1,6 +1,8 @@
 package com.example.parkingapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -25,8 +27,6 @@ public class NavigationActivity extends AppCompatActivity
     private ImageView Qr;
     private ImageView Info;
     private DrawerLayout mDrawerLayout;
-    private String paymentMethod;
-    private String idPayment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +47,8 @@ public class NavigationActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        Qr= (ImageView)findViewById(R.id.ivQr);
-        Info=(ImageView)findViewById(R.id.ivInfo);
+        Qr = (ImageView) findViewById(R.id.ivQr);
+        Info = (ImageView) findViewById(R.id.ivInfo);
 
         Qr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,12 +64,10 @@ public class NavigationActivity extends AppCompatActivity
             }
         });
 
-        paymentMethod=getIntent().getStringExtra("payment method");
-        idPayment = getIntent().getStringExtra("id");
+        SharedPreferences paymentMethodsPrefs = getSharedPreferences("paymentMethods", Context.MODE_PRIVATE);
 
 
     }
-
 
 
     @Override
@@ -90,33 +88,26 @@ public class NavigationActivity extends AppCompatActivity
     }
 
 
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        Fragment fragment =null;
+        Fragment fragment = null;
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
             fragment = new ProfileFragment();
         } else if (id == R.id.nav_payment) {
-            Bundle bundle=new Bundle();
-            bundle.putString("payment method", paymentMethod);
-            bundle.putString("id", idPayment);
-
             fragment = new PaymentMethodsFragment();
-            fragment.setArguments(bundle);
-
         } else if (id == R.id.nav_fav) {
             fragment = new FavsFragment();
         } else if (id == R.id.nav_logout) {
-            startActivity(new Intent(NavigationActivity.this,MainActivity.class));
-        } else if(id == R.id.nav_menu){
-            startActivity(new Intent( NavigationActivity.this, NavigationActivity.class));
+            startActivity(new Intent(NavigationActivity.this, MainActivity.class));
+        } else if (id == R.id.nav_menu) {
+            startActivity(new Intent(NavigationActivity.this, NavigationActivity.class));
         }
-        if (fragment!=null){
-            FragmentManager fragmentManager=getSupportFragmentManager();
-            FragmentTransaction ft= fragmentManager.beginTransaction();
+        if (fragment != null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction ft = fragmentManager.beginTransaction();
 
             ft.replace(R.id.screen_area, fragment);
             ft.commit();
