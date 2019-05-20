@@ -21,21 +21,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:replace="android:theme">
-        <activity android:name=".SlotParkingInfoCursorAdapter"></activity>
-        <activity android:name=".SlotInfoActivity" />
-        <activity android:name=".LoginErrorActivity" />
+        <activity android:name=".CursorAdapters.SlotParkingInfoCursorAdapter"></activity>
+        <activity android:name=".Activities.SlotInfoActivity" />
+        <activity android:name=".Activities.LoginErrorActivity" />
         <activity
-            android:name=".NavigationActivity"
+            android:name=".Activities.NavigationActivity"
             android:label="@string/title_activity_navigation"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".ListPaymentMethodsActivity" />
-        <activity android:name=".QrGeneratorActivity" />
-        <activity android:name=".FloorInfoActivity" />
-        <activity android:name=".AddPaypalActivity" />
-        <activity android:name=".AddCreditCardActivity" />
-        <activity android:name=".navmenu_choosepayment" />
-        <activity android:name=".ParkingInfoActivity" />
-        <activity android:name=".ParkingListActivity" />
+        <activity android:name=".Activities.QrGeneratorActivity" />
+        <activity android:name=".Activities.FloorInfoActivity" />
+        <activity android:name=".Activities.AddPaypalActivity" />
+        <activity android:name=".Activities.AddCreditCardActivity" />
+        <activity android:name=".Activities.ChoosePaymentAddActivity" />
+        <activity android:name=".Activities.ParkingInfoActivity" />
+        <activity android:name=".Activities.ParkingListActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -49,12 +48,9 @@
             android:value="AIzaSyBureGG8QrwcYHC31e-gzt17cqGxh9rMcw" />
 
         <activity
-            android:name=".FirstMenu"
-            android:label="@string/title_activity_first_menu" />
-        <activity
-            android:name=".MainSignUpActivity"
+            android:name=".Activities.MainSignUpActivity"
             android:label="Sign up menu" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

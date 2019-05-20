@@ -4,19 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".navmenu_choosepayment"
+    tools:context=".Activities.ChoosePaymentAddActivity"
     android:background="@color/colorPrimaryDark">
-
-
-    <ImageView
-        android:id="@+id/ivBack"
-        android:layout_width="88dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
 
 
     <ImageView
@@ -80,13 +69,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="36dp"
         android:fontFamily="@font/bebasneue_regular"
         android:text="Payment Method"
         android:textColor="@color/fontColor"
         android:textSize="45sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivBack" />
+        tools:layout_editor_absoluteY="104dp" />
 
     <TextView
         android:id="@+id/textView7"

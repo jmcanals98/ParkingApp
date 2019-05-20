@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fontColor"
-    tools:context=".ParkingInfoActivity">
+    tools:context=".Activities.ParkingInfoActivity">
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"

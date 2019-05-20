@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddCreditCardActivity"
+    tools:context=".Activities.AddCreditCardActivity"
     android:background="@color/colorPrimaryDark">
 
     <TextView
@@ -32,16 +32,6 @@
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etNumber" />
-
-    <ImageView
-        android:id="@+id/ivBack"
-        android:layout_width="88dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
 
 
     <ImageView
@@ -76,13 +66,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
         android:fontFamily="@font/bebasneue_regular"
         android:text="Payment Method"
         android:textColor="@color/fontColor"
         android:textSize="45sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivBack" />
+        tools:layout_editor_absoluteY="88dp" />
 
 
     <ImageView
