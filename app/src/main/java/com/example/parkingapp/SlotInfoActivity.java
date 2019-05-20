@@ -72,4 +72,16 @@ public class SlotInfoActivity extends AppCompatActivity {
         lvItems.setAdapter(slotAdapter);
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent = new Intent(this,FloorInfoActivity.class);
+        intent.putExtra("parkingCompanyNum",parkingID);
+        intent.putExtra("floorID",floorID);
+        startActivity(intent);
+        finish();
+
+    }
 }

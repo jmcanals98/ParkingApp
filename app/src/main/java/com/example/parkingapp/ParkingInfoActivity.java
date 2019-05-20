@@ -108,4 +108,11 @@ public class ParkingInfoActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, ParkingListActivity.class));
+        finish();
+    }
 }

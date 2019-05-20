@@ -124,5 +124,12 @@ public class ParkingListActivity extends AppCompatActivity implements FilterDial
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, NavigationActivity.class));
+        finish();
+    }
 }
 

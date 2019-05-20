@@ -155,4 +155,13 @@ public class FloorInfoActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(FloorInfoActivity.this,ParkingInfoActivity.class);
+        intent.putExtra("companyname",parkingCompanyNum);
+        startActivity(intent);
+        finish();
+    }
 }
