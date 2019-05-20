@@ -183,10 +183,10 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                 cv2.put(ModelContracts.FloorContract.PARKING_ID, parkings.getParkings().get(i).getCompany_number());
 
 
-                selection = ModelContracts.FloorModel.buildIdSelection();
+                selection = ModelContracts.FloorModel.buildDefaultSelection();
                 String selectionArgs2[] = ModelContracts.FloorModel.buildIdSelectionArgs(parkings.getParkings().get(i).getFloors().get(j).getCompany_number());
 
-                numRows = getActivity().getContentResolver().update(ModelContracts.FloorModel.buildContentUri(),cv2,"company_number=?",selectionArgs2);
+                numRows = getActivity().getContentResolver().update(ModelContracts.FloorModel.buildContentUri(),cv2,selection,selectionArgs2);
 
                 if (numRows <1 ) {
                     Uri insertUri2 = contentResolver2.insert(ModelContracts.FloorModel.buildContentUri(), cv2);
