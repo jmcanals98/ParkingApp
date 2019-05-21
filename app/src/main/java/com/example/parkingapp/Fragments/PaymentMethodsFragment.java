@@ -47,11 +47,15 @@ public class PaymentMethodsFragment extends Fragment {
         param1 = paymentID.getString("payment_ID", null);
 
         if(paymentItems==null) paymentItems=new ArrayList<String>();
-        if (param1 != null){
-            paymentItems.add(param1);
-        saveArrayList(paymentItems, "paymentList");
-        }
 
+        if (param1 != null) {
+            for (int i = 0; i < paymentItems.size(); i++) {
+                if (!paymentItems.contains(param1)) {
+                    paymentItems.add(param1);
+                    saveArrayList(paymentItems, "paymentList");
+                }
+            }
+        }
 
         if(paymentItems.size()!=0)
 

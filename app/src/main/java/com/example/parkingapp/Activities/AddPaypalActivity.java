@@ -31,14 +31,7 @@ public class AddPaypalActivity extends AppCompatActivity {
         name = (EditText) findViewById(R.id.etName);
         password = (EditText) findViewById(R.id.etPassword3);
 
-/*
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AddPaypalActivity.this, ChoosePaymentAddActivity.class));
-            }
-        });
-*/
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
