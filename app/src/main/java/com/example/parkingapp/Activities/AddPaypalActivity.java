@@ -59,6 +59,7 @@ public class AddPaypalActivity extends AppCompatActivity {
 
             // set MyFragment Arguments
             Intent intent = new Intent(getBaseContext(), NavigationActivity.class);
+            intent.putExtra("saveClick",true);
             startActivity(intent);
         }
     }

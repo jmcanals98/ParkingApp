@@ -31,6 +31,7 @@ public class NavigationActivity extends AppCompatActivity
     private ImageView qr;
     private ImageView info;
     private DrawerLayout mDrawerLayout;
+    private boolean saveClick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,17 @@ public class NavigationActivity extends AppCompatActivity
         });
 
         SharedPreferences paymentMethodsPrefs = getSharedPreferences("paymentMethods", Context.MODE_PRIVATE);
+
+        saveClick=getIntent().getBooleanExtra("saveClick",false);
+
+        if (saveClick) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+
+            ft.replace(R.id.screen_area,new PaymentMethodsFragment());
+            ft.addToBackStack(null);
+            ft.commit();
+        }
 
     }
 

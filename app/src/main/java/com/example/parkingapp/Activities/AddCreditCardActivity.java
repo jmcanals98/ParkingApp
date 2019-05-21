@@ -62,6 +62,7 @@ public class AddCreditCardActivity extends AppCompatActivity {
             editor.commit();
 
             Intent intent = new Intent(getBaseContext(), NavigationActivity.class);
+            intent.putExtra("saveClick",true);
             startActivity(intent);
 
         }
