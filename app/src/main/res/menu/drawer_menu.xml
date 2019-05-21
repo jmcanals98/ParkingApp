@@ -16,11 +16,6 @@
             android:icon="@drawable/ic_favorite"
             android:title="Favs" />
         <item
-            android:id="@+id/nav_menu"
-            android:icon="@drawable/back"
-            android:title="Menu"
-            android:onClick=""/>
-        <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_cancel_black_24dp"
             android:title="Log out" />
