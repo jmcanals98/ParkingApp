@@ -137,7 +137,7 @@
         android:ems="10"
         android:fontFamily="@font/montserrat_bold"
         android:hint="Number"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textColor="@color/colorFont2"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -152,9 +152,10 @@
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:fontFamily="@font/montserrat_bold"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textColor="@color/colorFont2"
         android:textSize="18sp"
+        android:maxLength="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
