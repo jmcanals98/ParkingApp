@@ -46,9 +46,9 @@ public class PaymentMethodsFragment extends Fragment {
         paymentItems = getArrayList("paymentList");
         param1 = paymentID.getString("payment_ID", null);
 
-        if(paymentItems==null) paymentItems=new ArrayList<String>();
+        if (paymentItems == null) paymentItems = new ArrayList<String>();
 
-        if (param1 != null) {
+        if (param1 != null && paymentItems.size()!=0){
             for (int i = 0; i < paymentItems.size(); i++) {
                 if (!paymentItems.contains(param1)) {
                     paymentItems.add(param1);
@@ -56,28 +56,28 @@ public class PaymentMethodsFragment extends Fragment {
                 }
             }
         }
+        else if(param1!=null){
+            paymentItems.add(param1);
+            saveArrayList(paymentItems, "paymentList");
+        }
 
-        if(paymentItems.size()!=0)
-
-    {
-        adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.item_payment_method_list, R.id.tvPaymentMethodID, paymentItems);
-        lvPaymentMethods.setAdapter(adapter);
-    }
+        if (paymentItems.size() != 0) {
+            adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.item_payment_method_list, R.id.tvPaymentMethodID, paymentItems);
+            lvPaymentMethods.setAdapter(adapter);
+        }
 
 
-        addMethodsButton.setOnClickListener(new View.OnClickListener()
-
-    {
-        @Override
-        public void onClick (View v){
-        Intent intent = new Intent(getActivity(), ChoosePaymentAddActivity.class);
-        startActivity(intent);
-    }
-    });
+        addMethodsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ChoosePaymentAddActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
 
-}
+    }
 
 
     /**
