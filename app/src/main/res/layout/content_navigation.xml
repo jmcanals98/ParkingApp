@@ -52,14 +52,6 @@
                     android:paddingRight="15dp"
                     android:src="@drawable/checklist" />
 
-                <ImageView
-                    android:id="@+id/ivCar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:src="@drawable/car" />
             </LinearLayout>
     </FrameLayout>
 </android.support.design.circularreveal.CircularRevealRelativeLayout>
