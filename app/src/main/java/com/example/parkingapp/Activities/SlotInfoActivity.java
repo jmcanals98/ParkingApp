@@ -17,7 +17,6 @@ import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
 public class SlotInfoActivity extends AppCompatActivity {
 
     private ImageView imageSlotType;
-    private ImageView back;
     private String typeSlot;
     private String floorID;
     private String parkingID;
@@ -32,17 +31,7 @@ public class SlotInfoActivity extends AppCompatActivity {
         parkingID = getIntent().getStringExtra("parkingID");
 
         imageSlotType = findViewById(R.id.ivSlotType);
-        back=findViewById(R.id.ivBack);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SlotInfoActivity.this,FloorInfoActivity.class);
-                intent.putExtra("parkingCompanyNum",parkingID);
-                intent.putExtra("floorID",floorID);
-                startActivity(intent);
-            }
-        });
 
         switch (typeSlot) {
             case "COMMON":

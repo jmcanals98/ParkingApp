@@ -15,7 +15,7 @@ import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
 
 public class FloorInfoActivity extends AppCompatActivity {
 
-    private ImageView back1;
+
     private TextView parkingName;
     private TextView floorName;
     private TextView freeSlotsCar;
@@ -30,12 +30,13 @@ public class FloorInfoActivity extends AppCompatActivity {
     private ImageView bicycleFloorInfo;
     private String parkingCompanyNum;
     private  String floorID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_floor_info);
 
-        back1 =findViewById(R.id.ivBack);
+
         parkingName=findViewById(R.id.tvParkingNameFloorInfo);
         floorName=findViewById(R.id.tvFloorNumFloorInfo);
         freeSlotsCar=findViewById(R.id.tvCarFloorInfo);
@@ -53,17 +54,6 @@ public class FloorInfoActivity extends AppCompatActivity {
 
          parkingCompanyNum = getIntent().getStringExtra("parkingCompanyNum");
          floorID = getIntent().getStringExtra("floorID");
-
-        back1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(FloorInfoActivity.this,ParkingInfoActivity.class);
-                intent.putExtra("companyname",parkingCompanyNum);
-
-                startActivity(intent);
-            }
-        });
-
 
         ContentResolver contentResolver = getContentResolver();
         String defaultOrder = ModelContracts.ParkingModel.DEFAULT_SORT;

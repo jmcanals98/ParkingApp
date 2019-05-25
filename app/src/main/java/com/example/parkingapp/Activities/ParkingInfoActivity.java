@@ -18,7 +18,7 @@ import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
 
 public class ParkingInfoActivity extends AppCompatActivity {
 
-    private ImageView back;
+
     private ImageView parkingPhoto;
     private TextView name;
     private TextView street;
@@ -28,18 +28,10 @@ public class ParkingInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parking_info);
 
-        back = (ImageView) findViewById(R.id.ivBack);
+
         name = (TextView) findViewById(R.id.tvNameParkingInfo);
         street = (TextView) findViewById(R.id.tvStreetParkingInfo);
         parkingPhoto = (ImageView) findViewById(R.id.ivParkingInfoPhoto);
-
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ParkingInfoActivity.this, ParkingListActivity.class));
-            }
-        });
 
 
         String cn = getIntent().getStringExtra("companyname");

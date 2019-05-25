@@ -56,5 +56,12 @@ public class LoginErrorActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
+}
 

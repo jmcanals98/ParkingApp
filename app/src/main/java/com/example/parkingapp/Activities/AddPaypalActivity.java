@@ -13,11 +13,9 @@ import com.example.parkingapp.R;
 
 public class AddPaypalActivity extends AppCompatActivity {
 
-    private ImageView back;
     private  ImageView save;
     private EditText name;
     private EditText password;
-    private String choosePaypal;
     private SharedPreferences paymentPreferences;
 
     @Override
@@ -25,8 +23,6 @@ public class AddPaypalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_paypal);
 
-        choosePaypal=getIntent().getStringExtra("text");
-        back = (ImageView)findViewById(R.id.ivBack);
         save = (ImageView)findViewById(R.id.ivSave1);
         name = (EditText) findViewById(R.id.etName);
         password = (EditText) findViewById(R.id.etPassword3);

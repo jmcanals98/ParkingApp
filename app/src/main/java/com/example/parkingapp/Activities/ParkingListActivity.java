@@ -21,7 +21,7 @@ import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
 
 public class ParkingListActivity extends AppCompatActivity implements FilterDialogFragment.ExampleDialogListener {
 
-    private ImageView back;
+
     private ImageView filter;
     private String nameType = "Selection";
     @Override
@@ -30,17 +30,8 @@ public class ParkingListActivity extends AppCompatActivity implements FilterDial
         setContentView(R.layout.activity_parking_list);
 
         ContentResolver contentResolver = getContentResolver();
-        back = findViewById(R.id.ivBack);
+
         filter = findViewById(R.id.ivFilter);
-
-
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ParkingListActivity.this, NavigationActivity.class));
-            }
-        });
 
         filter.setOnClickListener(new View.OnClickListener() {
             @Override

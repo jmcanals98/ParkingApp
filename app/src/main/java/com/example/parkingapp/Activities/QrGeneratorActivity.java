@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class QrGeneratorActivity extends AppCompatActivity {
 
-    private ImageView back;
+
     private ArrayList<String> paymentItems = new ArrayList<String>();
 
     @Override
@@ -35,15 +35,6 @@ public class QrGeneratorActivity extends AppCompatActivity {
             spinner.setAdapter(adapter);
         }
 
-
-        back = (ImageView)findViewById(R.id.ivBack);
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(QrGeneratorActivity.this, NavigationActivity.class));
-            }
-        });
     }
 
 

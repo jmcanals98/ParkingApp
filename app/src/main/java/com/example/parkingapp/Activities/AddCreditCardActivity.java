@@ -13,36 +13,26 @@ import com.example.parkingapp.R;
 
 public class AddCreditCardActivity extends AppCompatActivity {
 
-    private ImageView back;
+
     private ImageView save;
     private EditText cardHolder;
     private EditText cardNumber;
     private EditText yearMonth;
     private EditText cvv;
-    private String chooseCreditCar;
+
     private SharedPreferences paymentPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_credit_card);
-        chooseCreditCar = getIntent().getStringExtra("text");
-        back = (ImageView) findViewById(R.id.ivBack);
+
         save = (ImageView) findViewById(R.id.ivSave);
         cardHolder = (EditText) findViewById(R.id.etCardHolder);
         cardNumber = (EditText) findViewById(R.id.etNumber);
         yearMonth = (EditText) findViewById(R.id.etYearMonth);
         cvv = (EditText) findViewById(R.id.etCVV);
 
-
-
-
-   /*     back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AddCreditCardActivity.this, ChoosePaymentAddActivity.class));
-            }
-        });*/
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
