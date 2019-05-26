@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
     private Button login;
     private TextView signup;
     private Locations locations;
-    private int count=0;
 
     StringResponseListener stringListener = new StringResponseListener(this);
     private static final String TAG = cat.tomasgis.module.communication.commapptesting.MainActivity.class.getSimpleName();
@@ -85,7 +84,6 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
     public void onReceiveData(String s) {
         if (s != null) {
             if (s.length() > 0) {
-                Toast.makeText(this, "Data received", Toast.LENGTH_SHORT).show();
                 Log.d(TAG, s);
                 downloadLocations(s);
             }
@@ -99,23 +97,6 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
 
     }
 
-    private void downloadParkings(String data) {
-        String parseString = "{\"parkings\":" + data + "}";
-        GsonBuilder gson = new GsonBuilder();
-        Parkings parkings = gson.create().fromJson(parseString, Parkings.class);
-    }
-
-    private void downloadSlots(String data) {
-        String parseString = "{\"slots\":" + data + "}";
-        GsonBuilder gson = new GsonBuilder();
-        Slots slots = gson.create().fromJson(parseString, Slots.class);
-    }
-
-    private void downloadFloors(String data) {
-        String parseString = "{\"floors\":" + data + "}";
-        GsonBuilder gson = new GsonBuilder();
-        Floors floors = gson.create().fromJson(parseString, Floors.class);
-    }
 
     private void downloadLocations(String data) {
         String parseString = "{\"locations\":" + data + "}";
@@ -127,7 +108,6 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
         ContentResolver contentResolver = this.getContentResolver();
 
         ContentValues cv = new ContentValues();
-        int size=locations.getLocations().size();
         for(int i=0; i<locations.getLocations().size(); i++){
             cv.put(ModelContracts.LocationContract.ID,locations.getLocations().get(i).getId());
             cv.put(ModelContracts.LocationContract.NAME,locations.getLocations().get(i).getCity());
@@ -156,7 +136,6 @@ public class MainActivity extends AppCompatActivity implements IDataReceiver {
 
     @Override
     public void onBackPressed() {
-
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

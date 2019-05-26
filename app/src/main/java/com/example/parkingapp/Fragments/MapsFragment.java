@@ -83,28 +83,25 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         if (ActivityCompat.checkSelfPermission(this.getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this.getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this.getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             return;
-        }else{
+        } else {
             map.setMyLocationEnabled(true);
         }
     }
 
-    protected void queryBaseData(GoogleMap map)
-    {
+    protected void queryBaseData(GoogleMap map) {
         ContentResolver contentResolver = getActivity().getContentResolver();
 
 
         String defaultOrder = ModelContracts.LocationModel.DEFAULT_SORT;
         String projections[] = ModelContracts.LocationModel.DEFAULT_PROJECTIONS;
-        //String selection = ModelContracts.SlotModel.buildFloorStateTypeSelection();
-        //String selectionArgs[] = ModelContracts.SlotModel.buildFloorStateTypeSelectionArgs(null,"FREE",null);
 
-        Cursor cursor = contentResolver.query(ModelContracts.LocationModel.buildContentUri(),projections,null,null,defaultOrder);
+        Cursor cursor = contentResolver.query(ModelContracts.LocationModel.buildContentUri(), projections, null, null, defaultOrder);
         int numElements = cursor.getCount();
 
         cursor.moveToFirst();
-        for (int i=0;i<numElements;i++){
-            String lat  = cursor.getString(cursor.getColumnIndex(ModelContracts.LocationModel.LATITUDE));
-            String lon  = cursor.getString(cursor.getColumnIndex(ModelContracts.LocationModel.LONGITUDE));
+        for (int i = 0; i < numElements; i++) {
+            String lat = cursor.getString(cursor.getColumnIndex(ModelContracts.LocationModel.LATITUDE));
+            String lon = cursor.getString(cursor.getColumnIndex(ModelContracts.LocationModel.LONGITUDE));
 
 
             LatLng marker = new LatLng(Double.parseDouble(lat), Double.parseDouble(lon));
@@ -112,7 +109,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
             cursor.moveToNext();
         }
 
-        Log.d(TAG,String.format("Number of elements obtained with query: %d", numElements));
+        Log.d(TAG, String.format("Number of elements obtained with query: %d", numElements));
     }
 
 
@@ -120,7 +117,6 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
     public void onReceiveData(String s) {
         if (s != null) {
             if (s.length() > 0) {
-                Toast.makeText(this.getContext(), "Data received", Toast.LENGTH_SHORT).show();
                 Log.d(TAG, s);
                 downloadParkings(s);
             }
@@ -138,6 +134,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         GsonBuilder gson = new GsonBuilder();
         parkings = gson.create().fromJson(parseString, Parkings.class);
     }
+
     protected void createBaseData() {
         ContentResolver contentResolver = getActivity().getContentResolver();
 
@@ -151,13 +148,13 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
             String selection = ModelContracts.ParkingModel.buildIdSelection();
             String selectionArgs[] = ModelContracts.ParkingModel.buildIdSelectionArgs(parkings.getParkings().get(i).getId());
 
-            int numRows = getActivity().getContentResolver().update(ModelContracts.ParkingModel.buildContentUri(),cv,selection,selectionArgs);
+            int numRows = getActivity().getContentResolver().update(ModelContracts.ParkingModel.buildContentUri(), cv, selection, selectionArgs);
 
-            if (numRows <1 ) {
+            if (numRows < 1) {
                 Uri insertUri = contentResolver.insert(ModelContracts.ParkingModel.buildContentUri(), cv);
                 Log.d(TAG, String.format("Parking inserted DB: %s", insertUri.toString()));
 
-            }else{
+            } else {
                 Log.d(TAG, String.format("Parking updated"));
             }
 
@@ -173,13 +170,13 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                 selection = ModelContracts.FloorModel.buildDefaultSelection();
                 String selectionArgs2[] = ModelContracts.FloorModel.buildIdSelectionArgs(parkings.getParkings().get(i).getFloors().get(j).getCompany_number());
 
-                numRows = getActivity().getContentResolver().update(ModelContracts.FloorModel.buildContentUri(),cv2,selection,selectionArgs2);
+                numRows = getActivity().getContentResolver().update(ModelContracts.FloorModel.buildContentUri(), cv2, selection, selectionArgs2);
 
-                if (numRows <1 ) {
+                if (numRows < 1) {
                     Uri insertUri2 = contentResolver2.insert(ModelContracts.FloorModel.buildContentUri(), cv2);
                     Log.d(TAG, String.format("Floor inserted DB: %s", insertUri2.toString()));
 
-                }else{
+                } else {
                     Log.d(TAG, String.format("Floor updated"));
                 }
 
@@ -199,13 +196,13 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                     selection = ModelContracts.SlotModel.buildDefaultSelection();
                     String selectionArgs3[] = ModelContracts.SlotModel.buildDefaultSelectionArgs(parkings.getParkings().get(i).getFloors().get(j).getSlots().get(k).getCompany_number());
 
-                    numRows = getActivity().getContentResolver().update(ModelContracts.SlotModel.buildContentUri(),cv3,selection,selectionArgs3);
+                    numRows = getActivity().getContentResolver().update(ModelContracts.SlotModel.buildContentUri(), cv3, selection, selectionArgs3);
 
-                    if (numRows <1 ) {
+                    if (numRows < 1) {
                         Uri insertUri3 = contentResolver3.insert(ModelContracts.SlotModel.buildContentUri(), cv3);
                         Log.d(TAG, String.format("Slot inserted DB: %s", insertUri3.toString()));
 
-                    }else{
+                    } else {
                         Log.d(TAG, String.format("Slot updated"));
                     }
 

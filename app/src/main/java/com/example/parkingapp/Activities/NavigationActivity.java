@@ -27,10 +27,8 @@ import com.google.android.gms.maps.GoogleMap;
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private GoogleMap mMap;
     private ImageView qr;
     private ImageView info;
-    private DrawerLayout mDrawerLayout;
     private boolean saveClick;
 
     @Override
