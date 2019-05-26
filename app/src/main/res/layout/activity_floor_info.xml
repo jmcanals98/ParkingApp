@@ -42,14 +42,16 @@
 
     <TextView
         android:id="@+id/tvParkingNameFloorInfo"
-        android:layout_width="338dp"
-        android:layout_height="155dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Parking La Pedrera"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="55sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
@@ -90,130 +92,164 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvcolored">
+        app:layout_constraintTop_toBottomOf="@+id/tvcolored"
+        app:layout_constraintVertical_bias="0.0">
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/ivElectricFloorInfo"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="24dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivCarFloorInfo"
-                app:srcCompat="@drawable/electric" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/ivCarFloorInfo"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="28dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/car" />
+                <ImageView
+                    android:id="@+id/ivCarFloorInfo"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="28dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/car" />
 
-            <ImageView
-                android:id="@+id/ivMotorbikeFloorInfo"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="24dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivElectricFloorInfo"
-                app:srcCompat="@drawable/motorbike" />
+                <TextView
+                    android:id="@+id/tvCarFloorInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="48dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="TextView"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toEndOf="@+id/ivCarFloorInfo"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
 
-            <ImageView
-                android:id="@+id/ivDisabledFloorInfo"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="24dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivMotorbikeFloorInfo"
-                app:srcCompat="@drawable/wheelchair" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/ivBicycleFloorInfo"
-                android:layout_width="85dp"
-                android:layout_height="85dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivDisabledFloorInfo"
-                app:srcCompat="@drawable/bike" />
+                <ImageView
+                    android:id="@+id/ivElectricFloorInfo"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivCarFloorInfo"
+                    app:srcCompat="@drawable/electric" />
 
-            <TextView
-                android:id="@+id/tvCarFloorInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="48dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="TextView"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="24sp"
-                app:layout_constraintStart_toEndOf="@+id/ivCarFloorInfo"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tvElectricFloorInfo"
+                    android:layout_width="159dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="48dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="TextView"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toEndOf="@+id/ivElectricFloorInfo"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCarFloorInfo" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvElectricFloorInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="64dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="TextView"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="24sp"
-                app:layout_constraintStart_toEndOf="@+id/ivElectricFloorInfo"
-                app:layout_constraintTop_toBottomOf="@+id/tvCarFloorInfo" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvMotorbikeFloorInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="64dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="TextView"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="24sp"
-                app:layout_constraintStart_toEndOf="@+id/ivMotorbikeFloorInfo"
-                app:layout_constraintTop_toBottomOf="@+id/tvElectricFloorInfo" />
+                <ImageView
+                    android:id="@+id/ivMotorbikeFloorInfo"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivElectricFloorInfo"
+                    app:srcCompat="@drawable/motorbike" />
 
-            <TextView
-                android:id="@+id/tvDisabledFloorInfo4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="64dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="TextView"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="24sp"
-                app:layout_constraintStart_toEndOf="@+id/ivDisabledFloorInfo"
-                app:layout_constraintTop_toBottomOf="@+id/tvMotorbikeFloorInfo" />
+                <TextView
+                    android:id="@+id/tvMotorbikeFloorInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="48dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="TextView"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toEndOf="@+id/ivMotorbikeFloorInfo"
+                    app:layout_constraintTop_toBottomOf="@+id/tvElectricFloorInfo" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvBicycleFloorInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="64dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="TextView"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="24sp"
-                app:layout_constraintStart_toEndOf="@+id/ivBicycleFloorInfo"
-                app:layout_constraintTop_toBottomOf="@+id/tvDisabledFloorInfo4" />
-        </android.support.constraint.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivDisabledFloorInfo"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivMotorbikeFloorInfo"
+                    app:srcCompat="@drawable/wheelchair" />
+
+                <TextView
+                    android:id="@+id/tvDisabledFloorInfo4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="48dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="TextView"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toEndOf="@+id/ivDisabledFloorInfo"
+                    app:layout_constraintTop_toBottomOf="@+id/tvMotorbikeFloorInfo" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivBicycleFloorInfo"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivDisabledFloorInfo"
+                    app:srcCompat="@drawable/bike" />
+
+                <TextView
+                    android:id="@+id/tvBicycleFloorInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="48dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="TextView"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toEndOf="@+id/ivBicycleFloorInfo"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDisabledFloorInfo4" />
+            </LinearLayout>
+
+        </LinearLayout>
     </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
